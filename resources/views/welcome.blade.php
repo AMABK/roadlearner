@@ -216,24 +216,24 @@ Home
 <!-- /.row -->
 
 <hr>
-<center><h2>Transport related teams</h2></center>
+<center><h2>Transport Related Teams</h2></center>
 <hr>
 
 <div class="row">
     <div class="col-sm-4">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+        <img class="img-circle img-responsive img-center" src="/images/ntsa.jpg" height="60px" alt="">
         <h2>National Transport &AMP; Safety Authority (NTSA)</h2>
         <p>
             The National Transport and safety Authority was established through an Act of Parliament; Act Number 33 on 26th October 2012. The objective of forming the Authority was to harmonize the operations of the key road transport departments and help in effectively managing the road transport sub-sector and minimizing loss of lives through road accidents.
         </p>    
     </div>
     <div class="col-sm-4">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+        <img class="img-circle img-responsive img-center" src="/images/mot.jpeg" height="60px" alt="">
         <h2>Ministry of Transport and Infrastructure</h2>
         <p>The transport sector in Kenya encompasses a transport system comprising of road, rail, air and maritime. The sector is crucial in the promotion of socio-economic activities and development since an efficient and effective, transport system is a mainspring for rapid and sustained development in terms of national, regional and international integration, trade facilitation, poverty reduction and improvement of welfare of the citizen. </p>
     </div>
     <div class="col-sm-4">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+        <img class="img-circle img-responsive img-center" src="/images/eCitizen.jpg" height="60px" alt="">
         <h2>eCitizen</h2>
         <p>
             Kenyan Citizens and Foreign Residents can now apply for Government to Citizen (G2C) services and pay via mobile money, debit Cards and eCitizen agents.
