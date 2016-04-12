@@ -57,8 +57,6 @@ Driving Videos
             </div>
             @if(sizeof($videos) < 1)
             <center><div class="alert alert-warning" align="center">No video records found</div></center>
-            @else
-            <center><div class="alert alert-success" align="center">Filtered video records ({{sizeof($videos)}})</div></center>
             @endif
             <div class="box-body no-padding">
                 <?php $j = 0; ?>

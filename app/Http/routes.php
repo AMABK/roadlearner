@@ -82,9 +82,23 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'online-test',
         'uses' => 'TestController@getOnlineTest'
     ));
+    
+    //Redirects incase of a get instead of a post
+    Route::get('/test-results', array(
+        'as' => 'online-test',
+        'uses' => 'TestController@getOnlineTest'
+    ));
     Route::post('/online-test', array(
         'as' => 'online-test',
         'uses' => 'TestController@onlineTest'
+    ));
+    Route::post('/test-results', array(
+        'as' => 'test-results',
+        'uses' => 'TestController@testResults'
+    ));
+    Route::post('/after-results', array(
+        'as' => 'after-results',
+        'uses' => 'TestController@afterResults'
     ));
     //Authenticated routes
     Route::group(['middleware' => 'auth'], function () {

@@ -6,12 +6,14 @@
             <name>supadriver</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Answwe</word>
             <word>app</word>
             <word>csrf</word>
             <word>endforeach</word>
             <word>endif</word>
             <word>endsection</word>
             <word>foreach</word>
+            <word>preloader</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

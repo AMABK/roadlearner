@@ -47,7 +47,7 @@ Driving Basics
                         <div class="uk-panel-box-primary" style="height: 150px; border-radius: 5px; padding: 5px; box-shadow: 5px 5px 5px #888888; cursor: pointer">
                             Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.
                             <br>
-                            <input name="checked[{{$type->id}}]" value="on" type="checkbox"/>
+                            <input name="checked[{{$type->id}}]" value="{{$type->type_name}}" type="checkbox"/>
                         </div>
                     </div>
                     @if($i%4 == 3)

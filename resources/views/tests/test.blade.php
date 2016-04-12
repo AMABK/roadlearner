@@ -1,25 +1,8 @@
 @extends('layout.main')
 @section('title')
-City Driving Tips
+Test
 @endsection
 @section('preloader')
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-<script>
-    var app = angular.module('app', []);
-
-    app.controller('MainCtrl', function ($scope) {
-        $scope.save = function (model) {
-            $scope.addRelation.submitted = true;
-
-            if ($scope.addRelation.$valid) {
-                // submit to db
-                console.log(model);
-            } else {
-                console.log('Errors in form data');
-            }
-        };
-    });
-</script>
 <style>
     .dataTables_filter {
         display: none; 
@@ -52,12 +35,15 @@ City Driving Tips
             <div class="box-header with-border col-sm-4">
                 <center><h3 class="box-title">Important Tips for City Driving</h3></center>
             </div>
-            <div class="box-body col-sm-8 border-left border-right" ng-app="app" ng-controller="MainCtrl">
-                <table class="table table-striped c-box-shadow"  id="testTable"style="width: 100%">
-                    <thead class="hidden">
-                        <tr><th></th><th></th></tr>
-                    </thead>
-                    <tbody>
+            <form action="test-results" method="post">
+                {!!csrf_field()!!}
+                <div class="box-body col-sm-8 border-left border-right">
+                    <table class="table table-striped c-box-shadow"  id="testTable"style="width: 100%">
+                        <thead class="hidden">
+                            <tr><th></th><th></th></tr>
+                        </thead>
+                        <tbody>
+                        <input type="hidden" name="checked" value="{{\Session::get('checked')">
                         <?php $i = 1; ?>
                         @foreach($questions as $question)
 
@@ -76,8 +62,12 @@ City Driving Tips
                         </tr>
                         <tr>
                             <td>
+                                <input type="hidden" name="{{$question->id}}" value="off">
                                 @foreach($question->answers as $answer)
-                                <input type="radio" name="{{$question->id}}"> {{ucfirst($answer->answer)}}<br>
+                                <input type="radio" name="{{$question->id}}" value="{{ucfirst($answer->answer)}}"> {{ucfirst($answer->answer)}}<br>
+                                @if($answer->ans_value == 1)
+                                <input type="hidden" name="ans{{$question->id}}" value="{{ucfirst($answer->answer)}}">
+                                @endif
                                 @endforeach
                             </td>
                             <td style="width: 100px; border: 1px;">
@@ -88,10 +78,11 @@ City Driving Tips
                         </tr>
                         <?php $i++; ?>
                         @endforeach
-                    </tbody>
-                </table>
-                <input type="submit" class="btn btn-success" value="CHECK RESULTS &#187; &#187;" style="font-size: 25px;">
-            </div>
+                        </tbody>
+                    </table>
+                    <input type="submit" class="btn btn-success" value="CHECK RESULTS &#187; &#187;" style="font-size: 25px;">
+                </div>
+            </form>
             <div class="box-body col-sm-4 border-left border-right">
 
             </div>
@@ -128,7 +119,9 @@ City Driving Tips
     $(document).ready(function () {
         $('#testTable').DataTable({
             "order": false,
-            "paging": true
+            "lengthMenu": [ [20, 40, -1], [10, 20, "All"] ],
+            "paging": true,
+            "info" : false
         });
     });
 </script>   
