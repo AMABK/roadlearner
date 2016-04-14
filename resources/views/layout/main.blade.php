@@ -6,10 +6,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
+        <meta name="description" content="Road learner is a website that caters for all matters driving. Online driving classes include, video, pictures, traffic rules, highway code and emerging trends on the road">
         <meta name="author" content="">
+        <link rel='shortcut icon' href='favicon.png' type='image/x-icon'/ >
 
-        <title>@yield("title","Home") | Supa Dere</title>
+        <title>@yield("title","Home") | Road Learner</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">

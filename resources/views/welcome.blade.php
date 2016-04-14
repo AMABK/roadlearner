@@ -29,7 +29,7 @@ Home
     <div class="col-md-6">
         <div class="box">
             <div class="box-header with-border">
-                <center><h3 class="box-title"><b>How to get your driving license in Kenya</b></h3></center>
+                <center><h3 class="box-title"><b>Why take an online course?</b></h3></center>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus"></i>
@@ -37,36 +37,14 @@ Home
                 </div>
             </div>
             <div class="box-body no-padding">
-                <div class="uk-grid">
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            <a href="7546_signs.jpg" data-uk-lightbox="{group:'my-group'}"><img src="7546_signs.jpg" width="400" height="400" alt=""></a>
-                        </div>
-                        Left turn not allowed
-                    </div>
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            qwd2
-                        </div>
-                    </div>
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            qwd2
-                        </div>
-                    </div>
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            qwd2
-                        </div>
-                    </div>
-                </div>
+                Choosing an online driving course can often be the key to getting a driving permit or avoiding the ramifications of a moving violation driving ticket. We offer a safe, effective and relevant driver safety course online for those that want to study at their own pace. Our courses are available 24 hours a day, seven days a week. With interactive curriculum, online driving courses are very popular with young drivers and busy professionals. With online drivers courses, classes are truly as easy as checking your email or surfing your favorite website.
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="box">
             <div class="box-header with-border">
-                <center><h3 class="box-title"><b>No Classrooms, No Boring Lectures</b></h3></center>
+                <center><h3 class="box-title"><b>Be a Smart Driver, No Classrooms, No Boring Lectures</b></h3></center>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus"></i>
@@ -74,29 +52,7 @@ Home
                 </div>
             </div>
             <div class="box-body no-padding">
-                <div class="uk-grid">
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            <a href="7546_signs.jpg" data-uk-lightbox="{group:'my-group'}"><img src="7546_signs.jpg" width="400" height="400" alt=""></a>
-                        </div>
-                        Left turn not allowed
-                    </div>
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            qwd2
-                        </div>
-                    </div>
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            qwd2
-                        </div>
-                    </div>
-                    <div class="uk-width-medium-1-4">
-                        <div class="uk-panel uk-panel-box uk-scrollspy-init-inview" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true}">
-                            qwd2
-                        </div>
-                    </div>
-                </div>
+                Smart Digital Driver course is a first in terms of online driving courses, specifically designed for drivers in the modern day road designs and traffic. Being a competent driver will benefit you in terms of discount on your insurance premiums. And you will learn something new along the way. In fact, an evaluation of the course found that 90% of participants changed at least one driving habit as a result of what they learned.
             </div>
         </div>
     </div>
