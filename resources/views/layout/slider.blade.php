@@ -2,12 +2,10 @@
 		<link rel="stylesheet" type="text/css" href="slider/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="slider/css/component.css" />
 		<script src="slider/js/modernizr.min.js"></script>
-<header class="business-header">
-    <div class="container">			
         <section id="photostack-3" class="photostack" style="width: 1286px; margin-left: -73px">
             <div>
                 <figure>
-                    <a href="http://goo.gl/NJ1Dhf" class="photostack-img"><img src="slider/img/roundabout.gif" alt="img05"/></a>
+                    <a href="/round-about" class="photostack-img"><img src="slider/img/roundabout.gif" alt="Round About"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Round About</h2>
                         <div class="photostack-back">
@@ -16,7 +14,7 @@
                     </figcaption>
                 </figure>
                 <figure>
-                    <a href="http://goo.gl/fhwlSP" class="photostack-img"><img src="slider/img/video-icon.png" alt="img02"/></a>
+                    <a href="/driving-videos" class="photostack-img"><img src="slider/img/video-icon.png" alt="Driving Videos"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Driving Videos</h2>
                         <div class="photostack-back">
@@ -25,7 +23,7 @@
                     </figcaption>
                 </figure>
                 <figure>
-                    <a href="http://goo.gl/Jmvr4u" class="photostack-img"><img src="slider/img/lights-icon.png" alt="img03"/></a>
+                    <a href="/traffic-lights" class="photostack-img"><img src="slider/img/lights-icon.png" alt="Traffic Lights"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Traffics Lights</h2>
                         <div class="photostack-back">
@@ -34,7 +32,7 @@
                     </figcaption>
                 </figure>
                 <figure>
-                    <a href="http://goo.gl/Qw3ND4" class="photostack-img"><img src="slider/img/signs.gif" alt="img01"/></a>
+                    <a href="/traffic-signs" class="photostack-img"><img src="slider/img/signs.gif" alt="Traffic Signs"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Traffic Signs</h2>
                         <div class="photostack-back">
@@ -43,45 +41,45 @@
                     </figcaption>
                 </figure>
                 <figure>
-                    <a href="http://goo.gl/49lN3k" class="photostack-img"><img src="slider/img/4.jpg" alt="img04"/></a>
+                    <a href="/" class="photostack-img"><img src="slider/img/turning-icon.png" alt="Turning"/></a>
                     <figcaption>
-                        <h2 class="photostack-title">Heaven of time</h2>
+                        <h2 class="photostack-title">Turning Rules</h2>
                         <div class="photostack-back">
                             <p>What might be right for you may not be right for some. And we know Flipper lives in a world full of wonder flying there-under under the sea.</p>
                         </div>
                     </figcaption>
                 </figure>
                 <figure>
-                    <a href="http://goo.gl/Ms7VDl" class="photostack-img"><img src="slider/img/6.jpg" alt="img06"/></a>
+                    <a href="/highway-code" class="photostack-img"><img src="slider/img/highway-icon.png" alt="Highway Code"/></a>
                     <figcaption>
-                        <h2 class="photostack-title">Forever this</h2>
+                        <h2 class="photostack-title">Highway Code</h2>
                         <div class="photostack-back">
                             <p>Fish don't fry in the kitchen and beans don't burn on the grill. Took a whole lotta tryin' just to get up that hill. Baby if you've ever wondered - wondered whatever became of me. </p>
                         </div>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/7.jpg" alt="img07"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/highway-icon.png" alt="img07"/></a>
                     <figcaption>
-                        <h2 class="photostack-title">Lovely Green</h2>
+                        <h2 class="photostack-title">Highway Code</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
                     <a href="#" class="photostack-img"><img src="slider/img/signs.gif" alt="img08"/></a>
                     <figcaption>
-                        <h2 class="photostack-title">Wonderful</h2>
+                        <h2 class="photostack-title">Traffic Signs</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/9.jpg" alt="img09"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/stop-icon.png" alt="img09"/></a>
                     <figcaption>
-                        <h2 class="photostack-title">Love Addict</h2>
+                        <h2 class="photostack-title">Stop Sign</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/10.jpg" alt="img10"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/no-u-turn-icon.png" alt="img10"/></a>
                     <figcaption>
-                        <h2 class="photostack-title">Friendship</h2>
+                        <h2 class="photostack-title">No U-Turn Sign</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
@@ -91,38 +89,37 @@
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/12.jpg" alt="img12"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/no-u-turn-icon.png" alt="img12"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Serendipity</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/13.jpg" alt="img13"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/highway-icon.png" alt="img13"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Pure Soul</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/14.jpg" alt="img14"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/road-signs.png" alt="img14"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Winds of Peace</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/15.jpg" alt="img15"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/lights.gif" alt="img15"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Shades of blue</h2>
                     </figcaption>
                 </figure>
                 <figure data-dummy>
-                    <a href="#" class="photostack-img"><img src="slider/img/16.jpg" alt="img16"/></a>
+                    <a href="#" class="photostack-img"><img src="slider/img/video-icon.png" alt="img16"/></a>
                     <figcaption>
                         <h2 class="photostack-title">Lightness</h2>
                     </figcaption>
                 </figure>
             </div>
         </section>
-    </div><!-- /container -->
     <script src="slider/js/classie.js"></script>
     <script src="slider/js/photostack.js"></script>
     <script>
@@ -157,4 +154,3 @@
 
 
     </script>
-</header>

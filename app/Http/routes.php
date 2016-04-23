@@ -78,9 +78,17 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'select-test',
         'uses' => 'TestController@selectTest'
     ));
+    Route::get('/admin/test', array(
+        'as' => '/admin/test',
+        'uses' => 'TestController@adminTest'
+    ));
     Route::get('/online-test', array(
         'as' => 'online-test',
         'uses' => 'TestController@getOnlineTest'
+    ));
+        Route::get('/image-auto-complete', array(
+        'as' => 'image-auto-complete',
+        'uses' => 'TestController@getImageDetails'
     ));
     
     //Redirects incase of a get instead of a post
@@ -88,6 +96,7 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'online-test',
         'uses' => 'TestController@getOnlineTest'
     ));
+    //POST routes
     Route::post('/online-test', array(
         'as' => 'online-test',
         'uses' => 'TestController@onlineTest'
@@ -100,6 +109,11 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'after-results',
         'uses' => 'TestController@afterResults'
     ));
+    Route::post('/add-questions', array(
+        'as' => 'add-questions',
+        'uses' => 'TestController@addQuestions'
+    ));
+    
     //Authenticated routes
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', 'AdminController@index');

@@ -38,7 +38,7 @@ Test Results
             <form action="after-results" method="post" target="_blank">
                 {!!csrf_field()!!}
                 <div class="box-body col-sm-8 border-left border-right c-box-shadow" style="background-color: #f1f1f1">
-                    <center><h2>Percentage Score: {{$results['percent']}}&percnt;</h2></center>
+                    <center><h2>Percentage Score: {{sprintf('%0.2f', $results['percent'])}}&percnt;</h2></center>
                     <center><h3><i>
                         <?php
                         if ($results['percent'] < 40) {
@@ -54,7 +54,7 @@ Test Results
                         }
                         ?>
                             </i></h3></center>
-                    <center><h3>{{($results['percent']/100)*((sizeof($results)-1)/2)}} correct Answers out of {{(sizeof($results)-1)/2}} Questions</h3></center>
+                    <center><h3>{{($results['percent']/100)*($results['quiz_num'])}} correct Answers out of {{(sizeof($results)-1)/2}} Questions</h3></center>
                     @if(\Session::has('checked'))
                     <center><h2>Topics:</h2></center>
                     @foreach(\Session::get('checked') as $topics)

@@ -18,7 +18,7 @@ class TestController extends Controller {
             return redirect('select-test')
                             ->with('global', '<div class="alert alert-warning" align="center">Please select at least one test topic</div>');
         }
-        $query = \App\Question::where('question_status', 1);
+        $query = \App\Question::where('question_status', 1)->where('image_link', '!=', 'imageYes');
         $checked = \Request::get('checked');
         foreach ($checked as $key => $value) {
             $query->orWhere(function($or_query) use ($key) {
@@ -33,7 +33,7 @@ class TestController extends Controller {
     public function getOnlineTest() {
         //Check whether any topics have been selected
         if (\Session::has('checked')) {
-            $query = \App\Question::where('question_status', 1);
+            $query = \App\Question::where('question_status', 1)->where('image_link', '!=', 'imageYes');
             $checked = \Session::get('checked');
             foreach ($checked as $key => $value) {
                 $query->orWhere(function($or_query) use ($key) {
@@ -55,7 +55,11 @@ class TestController extends Controller {
         $count = 0;
         //Calculate correct answers
         $i = 1;
-        foreach ($result as $value) {
+        $quiz_num = 0;
+        foreach ($result as $key => $value) {
+            if(is_numeric($key)){
+                $quiz_num++;
+            }
             if ($i == 1) {
                 $student_answer = $value;
                 $i++;
@@ -70,11 +74,12 @@ class TestController extends Controller {
         }
         //calculate percentage score
         if (sizeof($result) > 0) {
-            $percent = ($count * 100) / (sizeof($result)/2);
+            $percent = ($count * 100) / ($quiz_num);
         } else {
             $percent = 0;
         }
         $result['percent'] = $percent;
+        $result['quiz_num'] = $quiz_num;
         return view('tests.results', array('results' => $result));
     }
 
@@ -87,4 +92,73 @@ class TestController extends Controller {
             return view('tests.review-test', array('results' => json_decode(\Request::get('results'))));
         }
     }
+
+    public function getImageDetails() {
+        $name = trim(strip_tags($_GET['term']));
+        //$name = 'arno';
+        $user_data = \App\Traffic_sign::orWhere('sign_name', 'like', '%' . $name . '%')
+                ->orWhere('sign_desc', 'like', '%' . $name . '%')
+                ->get(['id', 'sign_name', 'sign_desc']);
+//Declare an empty array
+        $matches = [];
+        foreach ($user_data as $data) {
+            $det['first_name'] = $data->sign_name;
+            $det['last_name'] = $data->sign_name;
+            $det['email'] = $data->sign_name;
+            $det['value'] = $data->sign_name;
+            $det['label'] = "{$data->sign_name} {$data->sign_name}[{$data->sign_name}]";
+            $matches[] = $det;
+        }
+        if (sizeof($matches) < 1) {
+            $matches['label'] = 'NO MATCHES FOUND';
+        }
+        print json_encode($matches);
+    }
+
+    public function adminTest() {
+        $topic = \App\Question_type::where('status', 1)->get();
+        return view('tests.admin.index', array('topics' => $topic));
+    }
+
+    public function addQuestions() {
+        $num = 1;
+        //dd(\Request::get('correct_ans')[0]);
+        foreach (\Request::get('quiz') as $key => $value) {
+            if ($value != "") {
+                if (\Request::get('image_needed')[$key] == 'imageNo') {
+                    $image = null;
+                } else {
+                    $image = 'imageYes';
+                }
+                $add_test = \App\Question::create(array(
+                            'question_type_id' => \Request::get('topic'),
+                            'question' => $value,
+                            'answer_desc' => 'N/A',
+                            'question_status' => 1,
+                            'image_link' => $image
+                ));
+
+                //Add answer options
+                for ($i = 1; $i < 5; $i++) {
+                    //Check for correct answer
+                    if (\Request::get('correct_ans')[$key] == $i) {
+                        $ans_value = 1;
+                    } else {
+                        $ans_value = 0;
+                    }
+                    \App\Answer::create(
+                            array(
+                                'answer' => \Request::get('ans' . $i)[$key],
+                                'question_id' => $add_test->id,
+                                'ans_status' => 1,
+                                'ans_value' => $ans_value
+                            )
+                    );
+                }
+            }
+        }
+        return redirect()->back()
+                        ->with('global', '<div class="alert alert-success" align="center">Questions added to Tests</div>');
+    }
+
 }

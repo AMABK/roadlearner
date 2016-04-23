@@ -43,7 +43,7 @@ Review Test Answers
                             <tr><th></th><th></th></tr>
                         </thead>
                         <tbody>
-                            <?php $i = 1; ?> 
+                            <?php $i = 1;?> 
                             @foreach($results as $key => $result)
                             @if(is_numeric($key))
                             <?php
@@ -63,11 +63,12 @@ Review Test Answers
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    @foreach($quiz->answers as $answer)
-                                    <?php
+                                <td><?php
                                     $selected = '';
                                     $correct = '';
+                                    ?>
+                                    @foreach($quiz->answers as $answer)
+                                    <?php
                                     if ($result == $answer->answer) {
                                         $selected = 'checked';
                                         $correct = 'correct';

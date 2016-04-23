@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Home
+Welcome
 @stop
 @section('slider')
 @include('layout.slider')
@@ -29,7 +29,7 @@ Home
     <div class="col-md-6">
         <div class="box">
             <div class="box-header with-border">
-                <center><h3 class="box-title"><b>Why take an online course?</b></h3></center>
+                <center><h3 class="box-title"><b>Why take an online course? </b></h3></center>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus"></i>
@@ -203,7 +203,7 @@ Home
 @section('scripts')
 @parent
 @if($app->environment('local'))
-<script src="uikit-2.24.3/js/components/lightbox.min.js"></script>
+<script src="uikit-2.26.2/js/components/lightbox.min.js"></script>
 @else
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/js/components/lightbox.min.js"></script>
 @endif

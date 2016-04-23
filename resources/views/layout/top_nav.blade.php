@@ -61,6 +61,8 @@
                             <a href="{{URL('/car-basics')}}">Car Basics</a>
                             <a href="{{URL('/general-tips')}}">General Tips</a>
                             <a href="{{URL('/city-tips')}}">City Driving Tips</a>
+                            <a href="{{URL('/round-about')}}">Round About</a>
+                            <a href="{{URL('/traffic-lights')}}">Traffic Lights</a>
                         </div>
                     </div>
                 <li>
