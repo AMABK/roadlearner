@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="slider/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="slider/css/component.css" />
 <script src="slider/js/modernizr.min.js"></script>
-<section id="photostack-3" class="photostack" style="width: 1286px; margin-left: -73px">
+<section id="photostack-3" class="photostack">
     <div>
         <figure>
             <a href="/round-about" class="photostack-img"><img src="slider/img/roundabout.gif" alt="Round About"/></a>
@@ -10,7 +10,7 @@
                 <h2 class="photostack-title">Round About</h2>
                 <div class="photostack-back">
                     <p>
-                        Roundabout is a circular intersection that comes in a variety of sizes, sometimes with multiple exits, lanes and traffic lights. They reduce vehicle speeds through an intersection, and as a result improve safety for all road users — pedestrians, cyclists and motorists.
+                        Roundabout is a circular intersection that comes in a variety of sizes, sometimes with multiple exits, lanes and traffic lights. They reduce vehicle speeds through an intersection resulting in improved safety for all road users.
                     </p> 
                 </div>
             </figcaption>
