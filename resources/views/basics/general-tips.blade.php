@@ -174,7 +174,7 @@ General Driving Tips
     </div>
 
 </div>
-<div class="row">
+<!--<div class="row">
     <div class="col-sm-8">
         <h2>What We Do</h2>
         <p>Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.</p>
@@ -197,7 +197,7 @@ General Driving Tips
             <abbr title="Email">E:</abbr> <a href="mailto:#">name@example.com</a>
         </address>
     </div>
-</div>
+</div>-->
 <!-- /.row -->
 
 <!--<hr>
