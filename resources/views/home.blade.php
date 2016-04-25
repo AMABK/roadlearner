@@ -33,6 +33,7 @@ Administrator
                                             <select type="text" required="" name="sign_type" class="form-control" id="exampleInputPassword1" placeholder="Sign name">
                                                 <option value="">Please select</option>
                                                 <option value="mandatory">Mandatory Sign</option>
+                                                <option value="informational">Informational Sign</option>
                                                 <option value="warning">Warning Sign</option>
                                             </select>
                                         </div>
