@@ -10,7 +10,7 @@
         <meta name="author" content="">
         <link rel='shortcut icon' href='favicon.png' type='image/x-icon'/ >
 
-        <title>@yield("title","Home") | Road Learner</title>
+              <title>@yield("title","Home") | Road Learner</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,16 @@
         <!-- Font Awesome CSS -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
-
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Archive - 3 (mobile, www.alicewanjiru.com) -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6475722357974643"
+         data-ad-slot="1869632415"
+         data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <body>
         @yield('preloader')
         <div class="se-pre-con"></div>
@@ -72,13 +81,13 @@
 
         <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
         <script>
-            //paste this code under the head tag or in a separate js file.
-            // Wait for window load
-            $(window).load(function () {
-                // Animate loader off screen
-                $(".se-pre-con").fadeOut("slow");
-                ;
-            });
+        //paste this code under the head tag or in a separate js file.
+        // Wait for window load
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");
+            ;
+        });
         </script>
         @yield('scripts')
 
