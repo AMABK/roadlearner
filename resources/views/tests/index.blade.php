@@ -45,7 +45,8 @@ Driving Basics
                     @endif
                     <div class="uk-width-medium-1-4 {{$type->id}}">
                         <div class="uk-panel-box-primary" style="height: 150px; border-radius: 5px; padding: 5px; box-shadow: 5px 5px 5px #888888; cursor: pointer">
-                            Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.
+                            <b>{{$type->type_name}}</b><br>
+                            {{$type->description}}
                             <br>
                             <input name="checked[{{$type->id}}]" value="{{$type->type_name}}" type="checkbox"/>
                         </div>
@@ -64,7 +65,7 @@ Driving Basics
     </div>
 
 </div>
-<div class="row">
+<!--<div class="row">
     <div class="col-sm-8">
         <h2>What We Do</h2>
         <p>Introduce the visitor to the business using clear, informative text. Use well-targeted keywords within your sentences to make sure search engines can find the business.</p>
@@ -88,7 +89,7 @@ Driving Basics
         </address>
     </div>
 </div>
-<!-- /.row -->
+ /.row 
 
 <hr>
 
@@ -109,7 +110,7 @@ Driving Basics
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
     </div>
 </div>
-<!-- /.row -->
+ /.row -->
 
 <hr>
 @stop
@@ -125,7 +126,7 @@ Driving Basics
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/js/components/grid.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.2/js/components/grid-parallax.min.js"></script>
 @endif
-!-- Needed both locally and i  production-->
+<!-- Needed both locally and i  production-->
 <script src="js/readmore.min.js"></script>
 
 <script>

@@ -7,18 +7,19 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller {
-    public function getTrafficSigns() {
-        $sign = \App\Traffic_sign::paginate(4);
+
+    public function getTrafficSigns1() {
+        $sign = \App\Traffic_sign::paginate(12);
         return view('signs.index', array('signs' => $sign));
     }
 
-    public function getdrivingVideos() {
+    public function getDrivingVideos() {
         $filter = \Request::get('filter');
         $query = \App\Video::whereNotNull('created_at');
         //Search by name
         $name = \Request::get('name');
         if ($name && !empty($name)) {
-            $query->where('video_name','LIKE', '%'.$name.'%');
+            $query->where('video_name', 'LIKE', '%' . $name . '%');
         }
         //Search by category
         $category = \Request::get('category');
@@ -30,8 +31,36 @@ class HomeController extends Controller {
         if ($type && !empty($type)) {
             $query->where('video_type', $type);
         }
-        $video = $query->paginate(3);
+        $video = $query->paginate(9);
         return view('videos.index', array('videos' => $video));
+    }
+
+    public function getTrafficSigns() {
+        $filter = \Request::get('filter');
+        $query = \App\Traffic_sign::whereNotNull('created_at');
+        //Search by name
+        $name = \Request::get('name');
+        if ($name && !empty($name)) {
+            $query->where('sign_name', 'LIKE', '%' . $name . '%');
+        }
+        //Search by category
+        $category = \Request::get('category');
+        if ($category && !empty($category)) {
+            $query->where('sign_category', $category);
+        }
+        //Search by description
+        $desc = \Request::get('description');
+        if ($desc && !empty($desc)) {
+            $query->where('sign_desc', $desc);
+        }
+        $sign = $query->paginate(12);
+        
+        $return = view('signs.index', array('signs' => $sign));
+        if (\Request::isMethod('post')) {
+            $return->with('global', '<div class="alert alert-success" align="center">Search successfully completed.</div>');
+        }
+        
+        return $return;
     }
 
     public function carBasics() {
@@ -45,4 +74,5 @@ class HomeController extends Controller {
     public function cityTips() {
         return view('basics.city-tips');
     }
+
 }

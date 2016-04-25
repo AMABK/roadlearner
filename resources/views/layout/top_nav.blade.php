@@ -37,6 +37,10 @@
     .dropdown:hover .dropbtn {
         background-color: #3e8e41;
     }
+    .has-child > a:after {
+   color: #f9f9f9;
+   content: ' ▾';
+}
 </style>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -55,14 +59,14 @@
             <ul class="nav navbar-nav">
                 <li>
                     <li>
-                    <div class="dropdown">
+                    <div class="dropdown has-child">
                         <a>General Driving Basics</a>
                         <div class="dropdown-content">
                             <a href="{{URL('/car-basics')}}">Car Basics</a>
                             <a href="{{URL('/general-tips')}}">General Tips</a>
                             <a href="{{URL('/city-tips')}}">City Driving Tips</a>
-                            <a href="{{URL('/round-about')}}">Round About</a>
-                            <a href="{{URL('/traffic-lights')}}">Traffic Lights</a>
+                            <a href="#">Round About</a>
+                            <a href="#">Traffic Lights</a>
                         </div>
                     </div>
                 <li>

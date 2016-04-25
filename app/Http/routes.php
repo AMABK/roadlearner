@@ -63,6 +63,10 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'driving-videos',
         'uses' => 'HomeController@getDrivingVideos'
     ));
+        Route::post('/traffic-signs', array(
+        'as' => 'traffic-signs',
+        'uses' => 'HomeController@getTrafficSigns'
+    ));
 //Admin contoller
     Route::post('/add-sign', array(
         'as' => 'add-sign',
