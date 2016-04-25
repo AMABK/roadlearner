@@ -10,7 +10,7 @@
                     @if(Session::has('global'))
                     <center><p>{!!Session::get('global')!!}</p></center>
                     @endif
-                    <center>
+<!--                    <center>
                         <div class="row">
                             <a href="/fb">
                                 <button  class="btn btn-primary">
@@ -33,7 +33,7 @@
                                 </button>
                             </a>
                         </div>
-                    </center>
+                    </center>-->
                     <div class="row omb_row-sm-offset-3 omb_loginOr" style="margin-left:33%;">
                         <div class="col-xs-12 col-sm-6">
                             <hr class="omb_hrOr">
