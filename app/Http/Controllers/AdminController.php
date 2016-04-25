@@ -60,9 +60,9 @@ class AdminController extends Controller {
                 } else {
                     // checking file is valid.
                     if (\Input::file('sign')->isValid()) {
-                        $destinationPath = 'uploads/'; // upload path
+                        $destinationPath = 'uploads/images'; // upload path
                         $extension = \Input::file('sign')->getClientOriginalExtension(); // getting image extension
-                        $fileName = \Request::get('sign_name') . '-' . $sign->id . '.' . $extension; // renameing image
+                        $fileName = ucfirst(\Request::get('sign_name') . '-' . $sign->id . '.' . $extension); // renameing image
                         \Input::file('sign')->move($destinationPath, $fileName); // uploading file to given path
                         // sending back with message
                         //Update support doc on db
