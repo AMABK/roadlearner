@@ -28,7 +28,7 @@ Test
 <hr>
 <div class="row">
     <div class="col-md-10">
-        <div class="box" style="margin-left: 10%;">
+        <div class="box">
             <div class="box-header with-border col-sm-8">
                 <center><h3 class="box-title">Welcome to your driving test</h3></center>
             </div>

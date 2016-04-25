@@ -25,7 +25,7 @@ City Driving Tips
 <hr>
 <div class="row">
     <div class="col-md-10">
-        <div class="box" style="margin-left: 10%;">
+        <div class="box">
             <div class="box-header with-border col-sm-8">
                 <center><h3 class="box-title">Important Tips for City Driving</h3></center>
             </div>

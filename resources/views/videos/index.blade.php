@@ -25,7 +25,7 @@ Driving Videos
 <hr>
 <div class="row">
     <div class="col-md-10">
-        <div class="box" style="margin-left: 10%;">
+        <div class="box">
             <div class="box-header with-border">
                 <center><h3 class="box-title">Driving Training Videos</h3></center>
                 <div class="box-tools pull-right">
