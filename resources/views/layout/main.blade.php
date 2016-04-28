@@ -34,16 +34,6 @@
         <!-- Font Awesome CSS -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Archive - 3 (mobile, www.alicewanjiru.com) -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-6475722357974643"
-         data-ad-slot="1869632415"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
     <body>
         @yield('preloader')
         <div class="se-pre-con"></div>
