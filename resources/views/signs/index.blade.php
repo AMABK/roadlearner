@@ -16,14 +16,14 @@ Traffic Signs
         width: 100%;
         height: 100%;
         z-index: 9999;
-        background: url(images/page_load/Preloader_9.gif) center no-repeat #fff;
+        background: url(/images/page_load/Preloader_9.gif) center no-repeat #fff;
 
     }
 </style>
 @endsection
 @section('content')
 <hr>
-<div class="row">
+<div class="row col-md-12">
     <div class="col-md-10">
         <div class="box">
             <div class="box-header with-border">
@@ -78,14 +78,20 @@ Traffic Signs
                 @endforeach            
             </div>
             <div class="box-body no-padding">
-            {!! $signs->links() !!}
+                {!! $signs->links() !!}
             </div>
         </div>
     </div>
+    <div class="col-md-2">
+        <div class="box">
+            <div class="box-header with-border">
+                <center><h3 class="box-title">Useful Links</h3></center>
 
+            </div>
+        </div>
+    </div>
 </div>
 
-<hr>
 
 <!--<div class="row">
     <div class="col-sm-4">
@@ -106,17 +112,16 @@ Traffic Signs
 </div>-->
 <!-- /.row -->
 
-<hr>
 @stop
 @section('scripts')
 @parent
 @if($app->environment('local'))
-<script src="uikit-2.24.3/js/components/lightbox.min.js"></script>
+<script src="/uikit-2.24.3/js/components/lightbox.min.js"></script>
 @else
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/js/components/lightbox.min.js"></script>
 @endif
 <script>
-                            function toggler(divId) {
+                        function toggler(divId) {
                             $("#" + divId).toggle(500);
                         }
                         $('signs').readmore({
@@ -125,8 +130,8 @@ Traffic Signs
                             heightMargin: 0,
                             lessLink: '<a href="#">Read less</a>'
                         });
-    $(document).ready(function () {
-        //   $('#myTable').DataTable();
-    });
+                        $(document).ready(function () {
+                            //   $('#myTable').DataTable();
+                        });
 </script>   
 @stop

@@ -11,9 +11,10 @@
   |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', array(
+        'as' => '/',
+        'uses' => 'HomeController@index'
+    ));
 
 
 /*
@@ -59,6 +60,10 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'city-tips',
         'uses' => 'HomeController@cityTips'
     ));
+    Route::get('/quick-link/{id}', array(
+        'as' => 'quick-link',
+        'uses' => 'HomeController@quickLink'
+    ));
     Route::post('/driving-videos', array(
         'as' => 'driving-videos',
         'uses' => 'HomeController@getDrivingVideos'
@@ -75,6 +80,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/add-video', array(
         'as' => 'add-video',
         'uses' => 'AdminController@postAddVideo'
+    ));
+    Route::post('/add-document', array(
+        'as' => 'add-document',
+        'uses' => 'AdminController@postAddDocument'
     ));
 //Test Controller
 

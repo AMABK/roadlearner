@@ -8,6 +8,11 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller {
 
+    public function index() {
+        $doc = \App\Document::where('doc_status', 1)->get();
+        return view('welcome', array('docs' => $doc));
+    }
+
     public function getTrafficSigns1() {
         $sign = \App\Traffic_sign::paginate(12);
         return view('signs.index', array('signs' => $sign));
@@ -54,12 +59,12 @@ class HomeController extends Controller {
             $query->where('sign_desc', $desc);
         }
         $sign = $query->paginate(12);
-        
+
         $return = view('signs.index', array('signs' => $sign));
         if (\Request::isMethod('post')) {
             $return->with('global', '<div class="alert alert-success" align="center">Search successfully completed.</div>');
         }
-        
+
         return $return;
     }
 
@@ -73,6 +78,11 @@ class HomeController extends Controller {
 
     public function cityTips() {
         return view('basics.city-tips');
+    }
+
+    public function quickLink($id) {
+        $doc = \App\Document::find($id);
+        return view('view-quick-link', array('$doc' => $doc));
     }
 
 }

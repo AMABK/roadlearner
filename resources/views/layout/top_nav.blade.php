@@ -30,7 +30,7 @@
     .dropdown-content a:hover {background-color: #9FA3A7}
 
     .dropdown:hover .dropdown-content {
-         z-index: 1;
+        z-index: 1;
         display: block !important;
     }
 
@@ -38,9 +38,9 @@
         background-color: #3e8e41;
     }
     .has-child > a:after {
-   color: #f9f9f9;
-   content: ' ▾';
-}
+        color: #f9f9f9;
+        content: ' ▾';
+    }
 </style>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -58,9 +58,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <li>
                     <div class="dropdown has-child">
-                        <a>General Driving Basics</a>
+                        <a>Driving Basics</a>
                         <div class="dropdown-content">
                             <a href="{{URL('/car-basics')}}">Car Basics</a>
                             <a href="{{URL('/general-tips')}}">General Tips</a>
@@ -69,20 +68,33 @@
                             <a href="#">Traffic Lights</a>
                         </div>
                     </div>
-                <li>
-                    <a href="{{URL('/traffic-signs')}}">Traffic Signs</a>
                 </li>
                 <li>
-                    <a href="{{URL('/driving-videos')}}">Driving Videos</a>
+                    <div class="dropdown has-child">
+                        <a>&nbsp;&nbsp;&nbsp;Road Learning</a>
+                        <div class="dropdown-content">
+                            <a href="{{URL('/traffic-signs')}}">Traffic Signs</a>
+                            <a href="{{URL('/driving-videos')}}">Driving Videos</a>
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <a href="{{URL('/select-test')}}">Driving Exercises</a>
+                    <div class="dropdown has-child">
+                        <a>&nbsp;&nbsp;&nbsp;Driving Exercises</a>
+                        <div class="dropdown-content">
+                            <a href="{{URL('/select-test')}}">Exercises</a>
+                            <a href="{{URL('/faqs')}}">FAQs</a>
+                        </div>
+                    </div>
                 </li>
                 <li>
                     <a href="#">Traffic Rules</a>
                 </li>
                 <li>
-                    <a href="#">Driving FAQs</a>
+                    <a href="{{URL('/road-statistics')}}">Road Statistics</a>
+                </li>
+                <li>
+                    <a href="#">Downloads</a>
                 </li>
                 <li>
                     <a href="#">Contact Us</a>

@@ -27,7 +27,7 @@ class AdminController extends Controller {
 
     public function postAddSign() {
         $validator = \Validator::make(\Request::all(), array(
-                    'sign' => 'required',
+                    'sign' => 'required|image',
                     'sign_type' => 'required',
                     'sign_name' => 'required',
                     'sign_desc' => 'required'
@@ -73,6 +73,62 @@ class AdminController extends Controller {
                         ));
                         return redirect('/home')
                                         ->with('global', '<div class="alert alert-success" align="center">Sign successfully uploaded.</div>');
+                    } else {
+                        // sending back with error message.
+                        return redirect('/home')
+                                        ->with('global', '<div class="alert alert-warning" align="center">Upload failed, please edit entry to re-upload the sign image</div>');
+                    }
+                }
+            }
+        }
+    }
+    public function postAddDocument() {
+        $validator = \Validator::make(\Request::all(), array(
+                    'document' => 'required|mimes:pdf,doc,docx,xlsx',
+                    'document_type' => 'required',
+                    'document_name' => 'required',
+                    'document_description' => 'required'
+                        )
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withErrors($validator->errors());
+        } else {
+            //store activity record
+            $doc = \App\Document::create(array(
+                        'doc_type' => \Request::get('document_type'),
+                        'doc_name' => \Request::get('document_name'),
+                        'doc_desc' => \Request::get('document_description'),
+            ));
+
+            //File upload
+            if ((\Input::hasFile('document'))) {
+                // getting all of the post data
+                $file = array('file' => \Input::file('document'));
+                // setting up rules
+                $rules = array('file' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+                // doing the validation, passing post data, rules and the messages
+                $validator = \Validator::make($file, $rules);
+                if ($validator->fails()) {
+                    // send back to the page with the input data and errors
+                    return redirect('home')->withInput()->withErrors($validator);
+                } else {
+                    // checking file is valid.
+                    if (\Input::file('document')->isValid()) {
+                        $destinationPath = 'uploads/documents'; // upload path
+                        $extension = \Input::file('document')->getClientOriginalExtension(); // getting image extension
+                        $fileName = \Request::get('document_name') . '-' . $doc->id . '.' . $extension; // renameing image
+                        \Input::file('document')->move($destinationPath, $fileName); // uploading file to given path
+                        // sending back with message
+                        //Update support doc on db
+                        \App\Document::where('id', $doc->id)
+                                ->update(
+                                        array(
+                                            'doc_link' => $fileName
+                        ));
+                        return redirect('/home')
+                                        ->with('global', '<div class="alert alert-success" align="center">Document successfully uploaded.</div>');
                     } else {
                         // sending back with error message.
                         return redirect('/home')

@@ -26,13 +26,32 @@ Welcome
 @section('content')
 <hr>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
+        <div class="box">
+            <div class="box-header with-border">
+                <center><h3 class="box-title"><b>&rightarrow; Useful Links &leftarrow;</b></h3></center>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse">
+                    </button>
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <ul style="list-style: none">
+                    @foreach($docs as $doc)
+                    <li>
+                        <i class="fa fa-link"><a href="/uploads/documents/{{$doc->doc_link}}" title="{{$doc->doc_name}}" target="_blank"> {{strtoupper(mb_strimwidth($doc->doc_name,0,36,'...'))}}</a> </i>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
         <div class="box">
             <div class="box-header with-border">
                 <center><h3 class="box-title"><b>Why take an online course? </b></h3></center>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse">
-                        <i class="fa fa-minus"></i>
                     </button>
                 </div>
             </div>
@@ -41,13 +60,12 @@ Welcome
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="box">
             <div class="box-header with-border">
                 <center><h3 class="box-title"><b>Be a Smart Driver, No Classrooms, No Boring Lectures</b></h3></center>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse">
-                        <i class="fa fa-minus"></i>
                     </button>
                 </div>
             </div>

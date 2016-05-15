@@ -13,10 +13,17 @@ Administrator
                     @if(Session::has('global'))
                     <center><p>{!!Session::get('global')!!}</p></center>
                     @endif
+                    @if (count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger" ><li>{{ $error }}</li></div>
+                        @endforeach
+                    </ul>
+                    @endif
                     <div class="row">
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                            <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+                            <li><a data-toggle="tab" href="#docs">Documents</a></li>
                         </ul>
 
                         <div class="tab-content">
@@ -75,9 +82,34 @@ Administrator
                                     </form>
                                 </div>
                             </div>
-                            <div id="menu2" class="tab-pane fade">
-                                <h3>Menu 2</h3>
-                                <p>Some content in menu 2.</p>
+                            <div id="docs" class="tab-pane fade">
+                                <h3>Documents</h3>
+                                <div class="col-lg-6">
+                                    <form action="/add-document" method="post" enctype="multipart/form-data">
+                                        {!! csrf_field() !!}
+                                        <div class="form-group">
+                                            <label for="">Select a document </label>                                
+                                            <input type="file" required="" name="document" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Document Type</label>
+                                            <select type="text" required="" name="document_type" class="form-control" id="exampleInputPassword1" placeholder="Document type">
+                                                <option value="">Please select</option>
+                                                <option value="usefullink">Useful Link</option>
+                                                <option value="warning">Warning Sign</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Document Name</label>
+                                            <input type="text" required="" name="document_name" class="form-control" id="exampleInputPassword1" placeholder="Document name">
+                                        </div>
+                                        <label for="">Document Description</label>                                
+                                        <textarea required="" name="document_description" placeholder="Document description..." class="form-control" rows="3"></textarea>
+                                        <div class="form-group">
+                                            <input type="submit" value="Upload document" class="form-control btn-success" id="exampleInputPassword2" placeholder="Video name">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
