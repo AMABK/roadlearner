@@ -25,9 +25,9 @@ Traffic Signs
 <hr>
 <div class="row">
     <div class="col-md-12"style="height:600px">
-        <object data="http://www.attorney-general.go.ke/wp-content/uploads/2015/12/Companies-Regulations.pdf" type="application/pdf" width="100%" height="100%">
-            <iframe src="http://www.attorney-general.go.ke/wp-content/uploads/2015/12/Companies-Regulations.pdf" width="100%" height="100%" style="border: none;">
-                This browser does not support PDFs. Please download the PDF to view it: <a href="http://www.attorney-general.go.ke/wp-content/uploads/2015/12/Companies-Regulations.pdf">Download PDF</a>
+        <object data="/uploads/documents/{{$doc->doc_link}}" type="application/pdf" width="100%" height="100%">
+            <iframe src="/uploads/documents/{{$doc->doc_link}}" width="100%" height="100%" style="border: none;">
+                This browser does not support PDFs. Please download the PDF to view it: <a href="/uploads/documents/{{$doc->doc_link}}">Download PDF</a>
             </iframe>
         </object>
     </div>
@@ -38,9 +38,7 @@ Traffic Signs
 @section('scripts')
 @parent
 @if($app->environment('local'))
-<script src="/uikit-2.24.3/js/components/lightbox.min.js"></script>
 @else
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/js/components/lightbox.min.js"></script>
 @endif
 <script>
     function toggler(divId) {

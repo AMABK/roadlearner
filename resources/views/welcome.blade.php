@@ -39,7 +39,7 @@ Welcome
                 <ul style="list-style: none">
                     @foreach($docs as $doc)
                     <li>
-                        <i class="fa fa-link"><a href="/uploads/documents/{{$doc->doc_link}}" title="{{$doc->doc_name}}" target="_blank"> {{strtoupper(mb_strimwidth($doc->doc_name,0,36,'...'))}}</a> </i>
+                        <i class="fa fa-link"><a href="/quick-link/{{$doc->id}}" title="{{$doc->doc_name}}" target="_blank"> {{strtoupper(mb_strimwidth($doc->doc_name,0,36,'...'))}}</a> </i>
                     </li>
                     @endforeach
                 </ul>

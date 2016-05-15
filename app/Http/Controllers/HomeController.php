@@ -82,7 +82,7 @@ class HomeController extends Controller {
 
     public function quickLink($id) {
         $doc = \App\Document::find($id);
-        return view('view-quick-link', array('$doc' => $doc));
+        return view('view-quick-link', array('doc' => $doc));
     }
 
 }

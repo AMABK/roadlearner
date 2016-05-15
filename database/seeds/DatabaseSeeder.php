@@ -14,13 +14,7 @@ class DatabaseSeeder extends Seeder {
 // $this->call(UserTableSeeder::class);
         Model::unguard();
 
-// $this->call(UserTableSeeder::class);
-        DB::table('users')->insert([
-            'first_name' => 'Arnold',
-            'last_name' => 'Karani',
-            'email' => 'arnold.mate@optimuse-solutions.com',
-            'password' => bcrypt('111111'),
-        ]);
+     $this->call(UserTableSeeder::class);
 
         Model::reguard();
     }
