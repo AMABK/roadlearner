@@ -35,7 +35,7 @@ Welcome
                     </button>
                 </div>
             </div>
-            <div class="box-body no-padding">
+            <div class="box-body no-padding" style="height: 200px; overflow-x: auto">
                 <ul style="list-style: none">
                     @foreach($docs as $doc)
                     <li>
@@ -222,10 +222,17 @@ Welcome
 @parent
 @if($app->environment('local'))
 <script src="uikit-2.26.2/js/components/lightbox.min.js"></script>
+<script src="js/readmore.min.js"></script>
 @else
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/js/components/lightbox.min.js"></script>
 @endif
 <script>
+    $('basics').readmore({
+        speed: 1500,
+        collapsedHeight: 120,
+        heightMargin: 16,
+        lessLink: '<a href="#">Read less</a>'
+    });
     $(document).ready(function () {
         //   $('#myTable').DataTable();
     });

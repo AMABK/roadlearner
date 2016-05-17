@@ -14,13 +14,14 @@ class HomeController extends Controller {
     }
 
     public function getTrafficSigns1() {
-        $sign = \App\Traffic_sign::paginate(12);
+        $sign = \App\Traffic_sign::where('sign_category', 'traffic_signs')
+                ->paginate(12);
         return view('signs.index', array('signs' => $sign));
     }
 
     public function getDrivingVideos() {
         $filter = \Request::get('filter');
-        $query = \App\Video::whereNotNull('created_at');
+        $query = \App\Video::whereNotNull('v_status');
         //Search by name
         $name = \Request::get('name');
         if ($name && !empty($name)) {
@@ -41,8 +42,7 @@ class HomeController extends Controller {
     }
 
     public function getTrafficSigns() {
-        $filter = \Request::get('filter');
-        $query = \App\Traffic_sign::whereNotNull('created_at');
+        $query = \App\Traffic_sign::whereNotNull('ts_status');
         //Search by name
         $name = \Request::get('name');
         if ($name && !empty($name)) {

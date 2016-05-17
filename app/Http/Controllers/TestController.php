@@ -57,7 +57,7 @@ class TestController extends Controller {
         $i = 1;
         $quiz_num = 0;
         foreach ($result as $key => $value) {
-            if(is_numeric($key)){
+            if (is_numeric($key)) {
                 $quiz_num++;
             }
             if ($i == 1) {
@@ -98,15 +98,14 @@ class TestController extends Controller {
         //$name = 'arno';
         $user_data = \App\Traffic_sign::orWhere('sign_name', 'like', '%' . $name . '%')
                 ->orWhere('sign_desc', 'like', '%' . $name . '%')
-                ->get(['id', 'sign_name', 'sign_desc']);
+                ->get(['sign_link', 'sign_name', 'sign_desc']);
 //Declare an empty array
         $matches = [];
         foreach ($user_data as $data) {
-            $det['first_name'] = $data->sign_name;
-            $det['last_name'] = $data->sign_name;
-            $det['email'] = $data->sign_name;
+            $det['name'] = $data->sign_name;
+            $det['image_link'] = $data->sign_link;
             $det['value'] = $data->sign_name;
-            $det['label'] = "{$data->sign_name} {$data->sign_name}[{$data->sign_name}]";
+            $det['label'] = "{$data->sign_name} [{$data->sign_desc}]";
             $matches[] = $det;
         }
         if (sizeof($matches) < 1) {
@@ -122,7 +121,6 @@ class TestController extends Controller {
 
     public function addQuestions() {
         $num = 1;
-        //dd(\Request::get('correct_ans')[0]);
         foreach (\Request::get('quiz') as $key => $value) {
             if ($value != "") {
                 if (\Request::get('image_needed')[$key] == 'imageNo') {
@@ -159,6 +157,57 @@ class TestController extends Controller {
         }
         return redirect()->back()
                         ->with('global', '<div class="alert alert-success" align="center">Questions added to Tests</div>');
+    }
+
+    public function editQuestions() {
+        foreach (\Request::get('ans') as $key => $value) {
+            if (\Request::get('image_link') != '') {
+                \App\Question::find($key)
+                        ->update(['image_link' => \Request::get('image_link')]);
+            }
+            \App\Question::find($key)
+                    ->update(['question_status' => \Request::get('question_status')]);
+            \App\Answer::where('question_id', $key)
+                    ->update(['ans_value' => 0]);
+            \App\Answer::find($value)
+                    ->update(['ans_value' => 1]);
+        }
+        return redirect()->back()
+                        ->with('global', '<div class="alert alert-success" align="center">Question successfully updated</div>');
+    }
+
+    public function viewAdminTest() {
+        $query = \App\Question::whereNotNull('created_at');
+        //Search by question
+        $question = \Request::get('question');
+        if ($question && !empty($question)) {
+            $query->where('question', 'LIKE', '%' . $question . '%');
+        }
+        //Search by status
+        $status = \Request::get('status');
+        if ($status && !empty($status)) {
+            if ($status == 2) {
+                $status = 0;
+            }
+            $query->where('question_status', $status);
+        } else {
+            $query->where('question_status', 1);
+        }
+        //Search by image status
+        $image = \Request::get('image');
+        if ($image && !empty($image)) {
+            if ($image == 'link') {
+                $query->whereNotNull('image_link')
+                        ->whereNotIn('image_link', ['imageYes']);
+            } else {
+                if ($image == 'null') {
+                    $image = NULL;
+                }
+                $query->where('image_link', $image);
+            }
+        }
+        $test = $query->paginate(20);
+        return view('tests.admin.view-test', array('tests' => $test));
     }
 
 }

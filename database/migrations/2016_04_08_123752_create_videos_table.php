@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration
             $table->string('video_name')->nullable();
             $table->longText('video_desc')->nullable();
             $table->string('video_link')->nullable();
+            $table->integer('v_status')->default(1);
             $table->timestamps();
         });
     }

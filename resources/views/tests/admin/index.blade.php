@@ -14,15 +14,10 @@ Test
                     <center><p>{!!Session::get('global')!!}</p></center>
                     @endif
                     <div class="row">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#createTest">Add Test Quizzes</a></li>
-                            <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-                        </ul>
-
+                        @include('tests.admin.navbar')
                         <div class="tab-content">
-                            <div id="createTest" class="tab-pane fade in active">
                                 <div class="col-lg-12">
-                                    <form id="bookForm" method="post" action="/add-questions" class="form-horizontal">
+                                    <form id="bookForm" method="post" action="/admin/add-questions" class="form-horizontal">
                                         {!!csrf_field()!!}
                                         <div class="col-xs-12"><label class="col-xs-4 control-label">Select a topic for all questions</label>
                                             <select class="form-control" required="" name="topic">
@@ -113,14 +108,7 @@ Test
                                             </div>
                                         </div>
                                     </form>
-
-                                </div>
                             </div>
-                            <div id="menu2" class="tab-pane fade">
-                                <h3>Menu 2</h3>
-                                <p>Some content in menu 2.</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

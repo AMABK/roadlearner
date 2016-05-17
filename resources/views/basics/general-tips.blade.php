@@ -228,7 +228,6 @@ General Driving Tips
 @if($app->environment('local'))
 <!--Need locally only-->
 <script src="uikit-2.24.3/js/components/lightbox.min.js"></script>
-<script src="js/readmore.min.js"></script>
 @else
 <!--Need in production-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.24.3/js/components/lightbox.min.js"></script>

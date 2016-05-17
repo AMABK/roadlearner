@@ -18,6 +18,7 @@ class CreateTrafficSignsTable extends Migration
             $table->string('sign_name')->nullable();
             $table->longText('sign_desc')->nullable();
             $table->string('sign_link')->nullable();
+            $table->integer('ts_status')->default(1);
             $table->timestamps();
         });
     }

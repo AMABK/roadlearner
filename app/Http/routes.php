@@ -12,9 +12,9 @@
  */
 
 Route::get('/', array(
-        'as' => '/',
-        'uses' => 'HomeController@index'
-    ));
+    'as' => '/',
+    'uses' => 'HomeController@index'
+));
 
 
 /*
@@ -36,8 +36,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('gh-callback', 'Auth\AuthController@handleProviderCallbackGH');
     Route::get('l', 'Auth\AuthController@redirectToProviderL');
     Route::get('l-callback', 'Auth\AuthController@handleProviderCallbackL');
-});
-Route::group(['middleware' => 'web'], function () {
     Route::auth();
     //Home Contoller
     Route::get('/traffic-signs', array(
@@ -68,7 +66,7 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'driving-videos',
         'uses' => 'HomeController@getDrivingVideos'
     ));
-        Route::post('/traffic-signs', array(
+    Route::post('/traffic-signs', array(
         'as' => 'traffic-signs',
         'uses' => 'HomeController@getTrafficSigns'
     ));
@@ -91,19 +89,16 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'select-test',
         'uses' => 'TestController@selectTest'
     ));
-    Route::get('/admin/test', array(
-        'as' => '/admin/test',
-        'uses' => 'TestController@adminTest'
-    ));
+
     Route::get('/online-test', array(
         'as' => 'online-test',
         'uses' => 'TestController@getOnlineTest'
     ));
-        Route::get('/image-auto-complete', array(
+    Route::get('/image-auto-complete', array(
         'as' => 'image-auto-complete',
         'uses' => 'TestController@getImageDetails'
     ));
-    
+
     //Redirects incase of a get instead of a post
     Route::get('/test-results', array(
         'as' => 'online-test',
@@ -122,13 +117,29 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'after-results',
         'uses' => 'TestController@afterResults'
     ));
-    Route::post('/add-questions', array(
-        'as' => 'add-questions',
-        'uses' => 'TestController@addQuestions'
-    ));
-    
+
     //Authenticated routes
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', 'AdminController@index');
+        Route::get('/admin/view-test', array(
+            'as' => '/admin/view-test',
+            'uses' => 'TestController@viewAdminTest'
+        ));
+        Route::post('/admin/view-test', array(
+            'as' => '/admin/view-test',
+            'uses' => 'TestController@viewAdminTest'
+        ));
+        Route::get('/admin/test', array(
+            'as' => '/admin/test',
+            'uses' => 'TestController@adminTest'
+        ));
+        Route::post('/admin/add-questions', array(
+            'as' => 'admin/add-questions',
+            'uses' => 'TestController@addQuestions'
+        ));
+        Route::post('/admin/edit-question', array(
+            'as' => 'admin/edit-question',
+            'uses' => 'TestController@editQuestions'
+        ));
     });
 });
