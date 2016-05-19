@@ -116,7 +116,7 @@ class TestController extends Controller {
 
     public function adminTest() {
         $topic = \App\Question_type::where('status', 1)->get();
-        return view('tests.admin.index', array('topics' => $topic));
+        return view('admin.tests.index', array('topics' => $topic));
     }
 
     public function addQuestions() {
@@ -207,7 +207,46 @@ class TestController extends Controller {
             }
         }
         $test = $query->paginate(20);
-        return view('tests.admin.view-test', array('tests' => $test));
+        return view('admin.tests.view-test', array('tests' => $test));
+    }
+
+    public function category() {
+        $cat = \App\Question_type::where('status', 1)->get();
+        return view('admin.tests.category', array('cats' => $cat));
+    }
+
+    public function addCategory() {
+        $add = \App\Question_type::create(array(
+                    'type_name' => \Request::get('name'),
+                    'description' => \Request::get('description'),
+                    'user_id' => \Auth::user()->id
+                        )
+        );
+        if ($add) {
+            return redirect()->back()
+                            ->with('global', '<div class="alert alert-success" align="center">Category added </div>');
+        } else {
+            return redirect()->back()
+                            ->with('global', '<div class="alert alert-warning" align="center">Failed, please try again </div>');
+        }
+    }
+
+    public function editCategory() {
+        $edit = \App\Question_type::find(\Request::get('id'))
+                ->update(array(
+            'type_name' => \Request::get('name'),
+            'description' => \Request::get('description'),
+            'status' => \Request::get('status'),
+            'user_id' => \Auth::user()->id
+                )
+        );
+        if ($edit) {
+            return redirect()->back()
+                            ->with('global', '<div class="alert alert-success" align="center">Category updated </div>');
+        } else {
+            return redirect()->back()
+                            ->with('global', '<div class="alert alert-warning" align="center">Failed, please try again </div>');
+        }
     }
 
 }

@@ -24,15 +24,12 @@ City Driving Tips
 @section('content')
 <hr>
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-9">
         <div class="box">
-            <div class="box-header with-border col-sm-8">
+            <div class="box-header with-border">
                 <center><h3 class="box-title">Important Tips for City Driving</h3></center>
             </div>
-            <div class="box-header with-border col-sm-4">
-                <center><h3 class="box-title">Important Tips for City Driving</h3></center>
-            </div>
-            <div class="box-body col-sm-8 border-left border-right">
+            <div class="box-body border-left border-right">
                 <p>
                     Driving in the city is a sport unto itself. Clogged expressways, impossible parking, countless red lights, never-ending construction, and the constant threat of car theft can make a trip downtown more than frustrating — it can turn the most mild-mannered Dr. Jekyll into a shouting, swearing Mr. Hyde. (And you know what I'm talking about.)
                 </p>
@@ -110,14 +107,16 @@ City Driving Tips
                     Finally, the best advice one can give about city driving is not to sweat the small stuff. Cabbies may cut you off, pedestrians may jaywalk, drivers may rubberneck, but you'll get there — eventually. The real trick is to keep your blood pressure down and your spirits up.
                 </p>
             </div>
-            <div class="box-body col-sm-4 border-left border-right">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border">
+                <center><h3 class="box-title">Useful Links</h3></center>
 
-            </div>
-            <div class="box-body no-padding">
             </div>
         </div>
     </div>
-
 </div>
 <hr>
 @stop

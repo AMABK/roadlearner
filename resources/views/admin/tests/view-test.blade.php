@@ -14,7 +14,7 @@ Test
                     <center><p>{!!Session::get('global')!!}</p></center>
                     @endif
                     <div class="row">
-                        @include('tests.admin.navbar')
+                        @include('admin.tests.navbar')
                         <div class="tab-content">
                             <div class="col-md-12">
                                 <form action="/admin/view-test" method="post">

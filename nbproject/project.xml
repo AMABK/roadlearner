@@ -13,6 +13,8 @@
             <word>endif</word>
             <word>endsection</word>
             <word>foreach</word>
+            <word>oads</word>
+            <word>php</word>
             <word>preloader</word>
         </spellchecker-wordlist>
     </configuration>

@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller {
 
     public function index() {
-        $doc = \App\Document::where('doc_status', 1)->get();
+        $doc = \App\Document::where('doc_status', 1)
+                ->where('doc_type', 'usefullink')
+                ->get();
         return view('welcome', array('docs' => $doc));
     }
 
@@ -83,6 +85,21 @@ class HomeController extends Controller {
     public function quickLink($id) {
         $doc = \App\Document::find($id);
         return view('view-quick-link', array('doc' => $doc));
+    }
+
+    public function viewDownloads() {
+        $download = \App\Document::where('doc_status', 1)
+                ->where('doc_type', 'download')
+                ->get();
+        return view('view-downloads', array('downloads' => $download));
+    }
+
+    public function download($id) {
+        $doc = \App\Document::find($id);
+        return view('download', array('doc' => $doc));
+    }
+    public function contact() {
+        return view('contact');
     }
 
 }

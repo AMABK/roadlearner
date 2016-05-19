@@ -172,7 +172,14 @@ Driving Basics
             </div>
         </div>
     </div>
+    <div class="col-md-2">
+        <div class="box">
+            <div class="box-header with-border">
+                <center><h3 class="box-title">Useful Links</h3></center>
 
+            </div>
+        </div>
+    </div>
 </div>
 
 <hr>

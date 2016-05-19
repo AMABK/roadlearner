@@ -64,37 +64,37 @@
                             <a href="{{URL('/car-basics')}}">Car Basics</a>
                             <a href="{{URL('/general-tips')}}">General Tips</a>
                             <a href="{{URL('/city-tips')}}">City Driving Tips</a>
-                            <a href="#">Round About</a>
-                            <a href="#">Traffic Lights</a>
+                            <!--                            <a href="#">Round About</a>
+                                                        <a href="#">Traffic Lights</a>-->
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="dropdown has-child">
-                        <a>&nbsp;&nbsp;&nbsp;Road Learning</a>
-                        <div class="dropdown-content">
-                            <a href="{{URL('/traffic-signs')}}">Traffic Signs</a>
-                            <a href="{{URL('/driving-videos')}}">Driving Videos</a>
-                        </div>
-                    </div>
+                    <a href="{{URL('/traffic-signs')}}">Traffic Signs</a>
                 </li>
                 <li>
+                    <a href="{{URL('/driving-videos')}}">Driving Videos</a>
+                </li>
+<!--                <li>
                     <div class="dropdown has-child">
                         <a>&nbsp;&nbsp;&nbsp;Driving Exercises</a>
                         <div class="dropdown-content">
-                            <a href="{{URL('/select-test')}}">Exercises</a>
+                            <a href="{{URL('/select-test')}}">Driving Test</a>
                             <a href="{{URL('/faqs')}}">FAQs</a>
                         </div>
                     </div>
-                </li>
+                </li>-->
                 <li>
-                    <a href="#">Traffic Rules</a>
+                    <a href="{{URL('/select-test')}}">Driving Exercises</a>
                 </li>
-                <li>
+<!--                <li>
                     <a href="{{URL('/road-statistics')}}">Road Statistics</a>
+                </li>-->
+                <li>
+                    <a href="{{URL('/view-downloads')}}">Downloads</a>
                 </li>
                 <li>
-                    <a href="#">Downloads</a>
+                    <a href="http://blog.roadlearner.com" target="_blank">Blog</a>
                 </li>
                 <li>
                     <a href="#">Contact Us</a>

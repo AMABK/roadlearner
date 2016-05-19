@@ -82,7 +82,8 @@ class AdminController extends Controller {
             }
         }
     }
-    public function postAddDocument() {
+
+    public function postAddDoc() {
         $validator = \Validator::make(\Request::all(), array(
                     'document' => 'required|mimes:pdf,doc,docx,xlsx',
                     'document_type' => 'required',
@@ -127,17 +128,18 @@ class AdminController extends Controller {
                                         array(
                                             'doc_link' => $fileName
                         ));
-                        return redirect('/home')
+                        return redirect()->back()
                                         ->with('global', '<div class="alert alert-success" align="center">Document successfully uploaded.</div>');
                     } else {
                         // sending back with error message.
-                        return redirect('/home')
+                        return redirect()->back()
                                         ->with('global', '<div class="alert alert-warning" align="center">Upload failed, please edit entry to re-upload the sign image</div>');
                     }
                 }
             }
         }
     }
+
     public function postAddVideo() {
         $validator = \Validator::make(\Request::all(), array(
                     'video' => 'required',
@@ -193,6 +195,32 @@ class AdminController extends Controller {
                     }
                 }
             }
+        }
+    }
+
+    public function documents() {
+        $doc = \App\Document::where('doc_status', 1)->get();
+        return view('admin.documents.index', array('docs' => $doc));
+    }
+
+    public function addDoc() {
+        return view('admin.documents.add-doc');
+    }
+    public function postEditDoc() {
+        $edit = \App\Document::find(\Request::get('id'))
+                ->update(array(
+            'doc_name' => \Request::get('name'),
+            'doc_desc' => \Request::get('description'),
+            'doc_status' => \Request::get('status'),
+            'doc_type' => \Request::get('doc_type')
+                )
+        );
+        if ($edit) {
+            return redirect()->back()
+                            ->with('global', '<div class="alert alert-success" align="center">Document updated </div>');
+        } else {
+            return redirect()->back()
+                            ->with('global', '<div class="alert alert-warning" align="center">Failed, please try again </div>');
         }
     }
 

@@ -23,8 +23,8 @@ Traffic Signs
 @endsection
 @section('content')
 <hr>
-<div class="row col-md-12">
-    <div class="col-md-10">
+<div class="row">
+    <div class="col-md-9">
         <div class="box">
             <div class="box-header with-border">
                 <center><h3 class="box-title">Learning about all traffic signs</h3></center>
@@ -39,25 +39,26 @@ Traffic Signs
             <div id="filterView" style="display:none;">
                 <form action="/traffic-signs" method="post">
                     {!!csrf_field()!!}
-                    <div>Sign Name
-                        <input type="text" name="name">
+                    Sign Name
+                    <input type="text" name="name" class="form-control">
                         Sign category
-                        <select name="filter['category']">
+                        <select name="filter['category']" class="form-control">
                             <option value="">Select</option>
                             <option value="mandatory">Mandatory signs</option>
                             <option value="warning">Warning signs</option>
                             <option value="informational">Informational signs</option>
                         </select>
                         Sign description
-                        <input type="text">
-                        Sign name
-                        <input type="text">
-                        <input type="submit" value="Search">
-                    </div>
+                        <input type="text" class="form-control">
+                        <input type="submit" value="Search" class="btn btn-success">
                 </form>
             </div>
             @if(sizeof($signs) < 1)
-            <center><div class="alert alert-warning" align="center">No sign records found</div></center>
+            <center>
+                <div class="alert alert-warning" align="center">
+                    No sign records found
+                </div>
+            </center>
             @endif
             <div class="box-body no-padding">
                 <?php $j = 0; ?>
@@ -82,36 +83,16 @@ Traffic Signs
             </div>
         </div>
     </div>
-    <div class="col-md-2">
-        <div class="box">
-            <div class="box-header with-border">
-                <center><h3 class="box-title">Useful Links</h3></center>
+</div>
+<div class="col-md-3">
+    <div class="box">
+        <div class="box-header with-border">
+            <center><h3 class="box-title">Useful Links</h3></center>
 
-            </div>
         </div>
     </div>
 </div>
-
-
-<!--<div class="row">
-    <div class="col-sm-4">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-        <h2>Marketing Box #1</h2>
-        <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
-    </div>
-    <div class="col-sm-4">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-        <h2>Marketing Box #2</h2>
-        <p>The images are set to be circular and responsive. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-    </div>
-    <div class="col-sm-4">
-        <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
-        <h2>Marketing Box #3</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-    </div>
-</div>-->
-<!-- /.row -->
-
+</div>
 @stop
 @section('scripts')
 @parent

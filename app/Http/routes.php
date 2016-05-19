@@ -42,6 +42,10 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'traffic-signs',
         'uses' => 'HomeController@getTrafficSigns'
     ));
+    Route::get('/contact', array(
+        'as' => 'contact',
+        'uses' => 'HomeController@contact'
+    ));
     Route::get('/driving-videos', array(
         'as' => 'driving-videos',
         'uses' => 'HomeController@getdrivingVideos'
@@ -62,6 +66,14 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'quick-link',
         'uses' => 'HomeController@quickLink'
     ));
+    Route::get('/view-downloads', array(
+        'as' => 'view-downloads',
+        'uses' => 'HomeController@viewDownloads'
+    ));
+    Route::get('/download/{id}', array(
+        'as' => 'download',
+        'uses' => 'HomeController@download'
+    ));
     Route::post('/driving-videos', array(
         'as' => 'driving-videos',
         'uses' => 'HomeController@getDrivingVideos'
@@ -71,6 +83,22 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'HomeController@getTrafficSigns'
     ));
 //Admin contoller
+    Route::get('/admin/documents', array(
+        'as' => '/admin/documents',
+        'uses' => 'AdminController@documents'
+    ));
+    Route::get('/admin/add-doc', array(
+        'as' => '/admin/add-doc',
+        'uses' => 'AdminController@addDoc'
+    ));
+    Route::post('/admin/add-doc', array(
+        'as' => '/admin/add-doc',
+        'uses' => 'AdminController@postAddDoc'
+    ));
+    Route::post('/admin/edit-doc', array(
+        'as' => '/admin/edit-doc',
+        'uses' => 'AdminController@postEditDoc'
+    ));
     Route::post('/add-sign', array(
         'as' => 'add-sign',
         'uses' => 'AdminController@postAddSign'
@@ -79,10 +107,7 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'add-video',
         'uses' => 'AdminController@postAddVideo'
     ));
-    Route::post('/add-document', array(
-        'as' => 'add-document',
-        'uses' => 'AdminController@postAddDocument'
-    ));
+
 //Test Controller
 
     Route::get('/select-test', array(
@@ -133,6 +158,10 @@ Route::group(['middleware' => ['web']], function () {
             'as' => '/admin/test',
             'uses' => 'TestController@adminTest'
         ));
+        Route::get('/admin/category', array(
+            'as' => '/admin/category',
+            'uses' => 'TestController@category'
+        ));
         Route::post('/admin/add-questions', array(
             'as' => 'admin/add-questions',
             'uses' => 'TestController@addQuestions'
@@ -140,6 +169,14 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/admin/edit-question', array(
             'as' => 'admin/edit-question',
             'uses' => 'TestController@editQuestions'
+        ));
+        Route::post('/admin/edit-cat', array(
+            'as' => 'admin/edit-cat',
+            'uses' => 'TestController@editCategory'
+        ));
+        Route::post('/admin/add-cat', array(
+            'as' => 'admin/add-cat',
+            'uses' => 'TestController@addCategory'
         ));
     });
 });
