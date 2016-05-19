@@ -97,7 +97,7 @@
                     <a href="http://blog.roadlearner.com" target="_blank">Blog</a>
                 </li>
                 <li>
-                    <a href="#">Contact Us</a>
+                    <a href="{{URL('/contact')}}">Contact Us</a>
                 </li>
             </ul>
         </div>
