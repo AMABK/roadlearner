@@ -60,7 +60,7 @@ class HomeController extends Controller {
         if ($desc && !empty($desc)) {
             $query->where('sign_desc', $desc);
         }
-        $sign = $query->paginate(12);
+        $sign = $query->orderByRaw("RAND()")->paginate(12);
 
         $return = view('signs.index', array('signs' => $sign));
         if (\Request::isMethod('post')) {
