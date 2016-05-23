@@ -42,7 +42,7 @@ Traffic Signs
                     Sign Name
                     <input type="text" name="name" class="form-control">
                         Sign category
-                        <select name="filter['category']" class="form-control">
+                        <select name="category" class="form-control">
                             <option value="">Select</option>
                             <option value="mandatory">Mandatory signs</option>
                             <option value="warning">Warning signs</option>
