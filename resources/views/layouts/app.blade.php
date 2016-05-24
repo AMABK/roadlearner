@@ -52,7 +52,7 @@
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/admin/test') }}">Tests</a></li>
                     <li><a href="{{ url('/admin/documents') }}">Documents</a></li>
-                    <li><a href="{{ url('/admin/iamges') }}">Images</a></li>
+                    <li><a href="{{ url('/admin/images') }}">Images</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
