@@ -188,7 +188,7 @@ Route::group(['middleware' => ['web']], function () {
         ));
         Route::post('/admin/add-cat', array(
             'as' => 'admin/add-cat',
-            'uses' => 'TestController@addCategory  '
+            'uses' => 'TestController@addCategory'
         ));
     });
 });

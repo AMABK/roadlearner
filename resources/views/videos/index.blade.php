@@ -36,22 +36,22 @@ Driving Videos
             <div id="filterView" style="display:none;">
                 <form action="/driving-videos" method="post">
                     {!!csrf_field()!!}
-                        Video Name
-                        <input type="text" class="form-control" name="name">
-                        Video Category
-                        <select name="filter['category']" class="form-control">
-                            <option value="">Round About</option>
-                            <option value="">Yellow Boxes</option>
-                            <option value="">City Driving</option>
-                        </select>
-                        Video Type
-                        <select name="type" class="form-control">
-                            <option value="">Beginners</option>
-                            <option value="">Experts</option>
-                        </select>
-                        <input type="submit" value="Search" class="btn btn-success">
+                    Video Name
+                    <input type="text" class="form-control" name="name">
+                    Video Category
+                    <select name="filter['category']" class="form-control">
+                        <option value="">Round About</option>
+                        <option value="">Yellow Boxes</option>
+                        <option value="">City Driving</option>
+                    </select>
+                    Video Type
+                    <select name="type" class="form-control">
+                        <option value="">Beginners</option>
+                        <option value="">Experts</option>
+                    </select>
+                    <input type="submit" value="Search" class="btn btn-success">
                 </form>
-                </div>
+            </div>
             @if(sizeof($videos) < 1)
             <center><div class="alert alert-warning" align="center">No video records found</div></center>
             @endif
@@ -78,15 +78,14 @@ Driving Videos
             </div>
         </div>
     </div>
-</div>
-<div class="col-md-2">
-    <div class="box">
-        <div class="box-header with-border">
-            <center><h3 class="box-title">Useful Links</h3></center>
+    <div class="col-md-2">
+        <div class="box">
+            <div class="box-header with-border">
+                <center><h3 class="box-title">Useful Links</h3></center>
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <hr>
