@@ -64,9 +64,11 @@ Test
                             <td>
                                 <input type="hidden" name="{{$question->id}}" value="off">
                                 @foreach($question->answers as $answer)
+                                @if($answer->answer != "") 
                                 <input type="radio" name="{{$question->id}}" value="{{ucfirst($answer->answer)}}"> {{ucfirst($answer->answer)}}<br>
                                 @if($answer->ans_value == 1)
                                 <input type="hidden" name="ans{{$question->id}}" value="{{ucfirst($answer->answer)}}">
+                                @endif
                                 @endif
                                 @endforeach
                             </td>
@@ -119,9 +121,9 @@ Test
     $(document).ready(function () {
         $('#testTable').DataTable({
             "order": false,
-            "lengthMenu": [ [20, 40, -1], [10, 20, "All"] ],
+            "lengthMenu": [[20, 40, -1], [10, 20, "All"]],
             "paging": true,
-            "info" : false
+            "info": false
         });
     });
 </script>   

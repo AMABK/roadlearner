@@ -54,7 +54,7 @@ Test Results
                         }
                         ?>
                             </i></h3></center>
-                    <center><h3>{{($results['percent']/100)*($results['quiz_num'])}} correct Answers out of {{(sizeof($results)-1)/2}} Questions</h3></center>
+                    <center><h3>{{($results['percent']/100)*($results['quiz_num'])}} correct Answers out of {{$results['quiz_num']}} Questions</h3></center>
                     @if(\Session::has('checked'))
                     <center><h2>Topics:</h2></center>
                     @foreach(\Session::get('checked') as $topics)
