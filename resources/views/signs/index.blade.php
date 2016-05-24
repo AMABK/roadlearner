@@ -41,16 +41,16 @@ Traffic Signs
                     {!!csrf_field()!!}
                     Sign Name
                     <input type="text" name="name" class="form-control">
-                        Sign category
-                        <select name="category" class="form-control">
-                            <option value="">Select</option>
-                            <option value="mandatory">Mandatory signs</option>
-                            <option value="warning">Warning signs</option>
-                            <option value="informational">Informational signs</option>
-                        </select>
-                        Sign description
-                        <input type="text" class="form-control">
-                        <input type="submit" value="Search" class="btn btn-success">
+                    Sign category
+                    <select name="category" class="form-control">
+                        <option value="">Select</option>
+                        <option value="mandatory">Mandatory signs</option>
+                        <option value="warning">Warning signs</option>
+                        <option value="informational">Informational signs</option>
+                    </select>
+                    Sign description
+                    <input type="text" class="form-control">
+                    <input type="submit" value="Search" class="btn btn-success">
                 </form>
             </div>
             @if(sizeof($signs) < 1)
@@ -83,15 +83,14 @@ Traffic Signs
             </div>
         </div>
     </div>
-</div>
-<div class="col-md-3">
-    <div class="box">
-        <div class="box-header with-border">
-            <center><h3 class="box-title">Useful Links</h3></center>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border">
+                <center><h3 class="box-title">Useful Links</h3></center>
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 @stop
 @section('scripts')
