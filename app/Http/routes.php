@@ -91,6 +91,10 @@ Route::group(['middleware' => ['web']], function () {
         'as' => '/admin/add-doc',
         'uses' => 'AdminController@addDoc'
     ));
+    Route::get('/admin/add-image', array(
+        'as' => '/admin/add-image',
+        'uses' => 'AdminController@addImage'
+    ));
     Route::post('/admin/add-doc', array(
         'as' => '/admin/add-doc',
         'uses' => 'AdminController@postAddDoc'
@@ -99,9 +103,17 @@ Route::group(['middleware' => ['web']], function () {
         'as' => '/admin/edit-doc',
         'uses' => 'AdminController@postEditDoc'
     ));
-    Route::post('/add-sign', array(
-        'as' => 'add-sign',
-        'uses' => 'AdminController@postAddSign'
+    Route::post('/admin/add-image', array(
+        'as' => '/admin/add-image',
+        'uses' => 'AdminController@postAddImage'
+    ));
+    Route::get('/admin/images', array(
+        'as' => '/admin/images',
+        'uses' => 'AdminController@images'
+    ));
+    Route::post('/admin/edit-image', array(
+        'as' => '/admin/edit-image',
+        'uses' => 'AdminController@postUpdateSign'
     ));
     Route::post('/add-video', array(
         'as' => 'add-video',
@@ -176,7 +188,7 @@ Route::group(['middleware' => ['web']], function () {
         ));
         Route::post('/admin/add-cat', array(
             'as' => 'admin/add-cat',
-            'uses' => 'TestController@addCategory'
+            'uses' => 'TestController@addCategory  '
         ));
     });
 });

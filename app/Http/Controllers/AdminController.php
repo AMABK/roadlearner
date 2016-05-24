@@ -25,7 +25,11 @@ class AdminController extends Controller {
         return view('home');
     }
 
-    public function postAddSign() {
+    public function addImage() {
+        return view('admin.images.add-image');
+    }
+
+    public function postAddImage() {
         $validator = \Validator::make(\Request::all(), array(
                     'sign' => 'required|image',
                     'sign_type' => 'required',
@@ -56,7 +60,9 @@ class AdminController extends Controller {
                 $validator = \Validator::make($file, $rules);
                 if ($validator->fails()) {
                     // send back to the page with the input data and errors
-                    return redirect('home')->withInput()->withErrors($validator);
+                    return redirect()->back()
+                                    ->withInput()
+                                    ->withErrors($validator);
                 } else {
                     // checking file is valid.
                     if (\Input::file('sign')->isValid()) {
@@ -71,14 +77,84 @@ class AdminController extends Controller {
                                         array(
                                             'sign_link' => $fileName
                         ));
-                        return redirect('/home')
+                        return redirect()->back()
                                         ->with('global', '<div class="alert alert-success" align="center">Sign successfully uploaded.</div>');
                     } else {
                         // sending back with error message.
-                        return redirect('/home')
+                        return redirect()->back()
                                         ->with('global', '<div class="alert alert-warning" align="center">Upload failed, please edit entry to re-upload the sign image</div>');
                     }
                 }
+            }
+        }
+    }
+
+    public function postUpdateSign() {
+        $validator = \Validator::make(\Request::all(), array(
+                    'sign_type' => 'required',
+                    'sign_name' => 'required',
+                    'sign_desc' => 'required',
+                    'status' => 'required'
+                        )
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withErrors($validator->errors());
+        } else {
+            //update record
+            if (\Request::get('details') == 'update') {
+                $update = \App\Traffic_sign::find(\Request::get('id'))
+                        ->update(array(
+                    'sign_type' => \Request::get('sign_type'),
+                    'sign_name' => \Request::get('sign_name'),
+                    'sign_desc' => \Request::get('sign_desc'),
+                    'ts_status' => \Request::get('status')
+                ));
+            }
+
+            //File upload
+            if ((\Input::hasFile('sign'))) {
+                $file = array('file' => \Input::file('sign'));
+                //dd(\Request::get('sign'));
+                //get all file info
+                $sign = \App\Traffic_sign::find(\Request::get('id'));
+                // getting all of the post data
+                $file = array('file' => \Input::file('sign'));
+                // setting up rules
+                $rules = array('file' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+                // doing the validation, passing post data, rules and the messages
+                $validator = \Validator::make($file, $rules);
+                if ($validator->fails()) {
+                    // send back to the page with the input data and errors
+                    return redirect('home')->withInput()->withErrors($validator);
+                } else {
+                    // checking file is valid.
+                    if (\Input::file('sign')->isValid()) {
+                        $destinationPath = 'uploads/images'; // upload path
+                        $fileName = $sign->sign_link; // renaming image
+                        //delete if exists
+                        $file_link = $destinationPath . $fileName;
+                        if (file_exists(public_path() . $file_link)) {
+                            \Storage::delete($file_link);
+                        }
+                        \Input::file('sign')->move($destinationPath, $fileName); // uploading file to given path
+                        // sending back with message
+                        return redirect()->back()
+                                        ->with('global', '<div class="alert alert-success" align="center">Sign successfully updated.</div>');
+                    } else {
+                        // sending back with error message.
+                        return redirect()->back()
+                                        ->with('global', '<div class="alert alert-warning" align="center">Upload failed, please edit entry to re-upload the sign image</div>');
+                    }
+                }
+            }
+            if ($update) {
+                return redirect()->back()
+                                ->with('global', '<div class="alert alert-success" align="center">Sign successfully updated.</div>');
+            } else {
+                return redirect()->back()
+                                ->with('global', '<div class="alert alert-warning" align="center">Sign update failed, please try again.</div>');
             }
         }
     }
@@ -206,6 +282,7 @@ class AdminController extends Controller {
     public function addDoc() {
         return view('admin.documents.add-doc');
     }
+
     public function postEditDoc() {
         $edit = \App\Document::find(\Request::get('id'))
                 ->update(array(
@@ -222,6 +299,11 @@ class AdminController extends Controller {
             return redirect()->back()
                             ->with('global', '<div class="alert alert-warning" align="center">Failed, please try again </div>');
         }
+    }
+
+    public function images() {
+        $image = \App\Traffic_sign::where('ts_status', 1)->paginate(100);
+        return view('admin.images.index', array('images' => $image));
     }
 
 }

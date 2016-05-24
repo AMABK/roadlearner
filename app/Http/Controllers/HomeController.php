@@ -22,7 +22,6 @@ class HomeController extends Controller {
     }
 
     public function getDrivingVideos() {
-        $filter = \Request::get('filter');
         $query = \App\Video::whereNotNull('v_status');
         //Search by name
         $name = \Request::get('name');
