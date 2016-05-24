@@ -43,7 +43,8 @@ Review Test Answers
                             <tr><th></th><th></th></tr>
                         </thead>
                         <tbody>
-                            <?php $i = 1;?> 
+                            <?php $i = 1; ?> 
+
                             @foreach($results as $key => $result)
                             @if(is_numeric($key))
                             <?php
@@ -63,18 +64,27 @@ Review Test Answers
                                 </td>
                             </tr>
                             <tr>
-                                <td><?php
+                                <td>
+                                    <?php
                                     $selected = '';
                                     $correct = '';
                                     ?>
                                     @foreach($quiz->answers as $answer)
+                                    @if($answer->answer != "")
                                     <?php
+                                    //Checks the selected answer by student
                                     if ($result == $answer->answer) {
+                                        $selected = 'checked';
+                                    }
+                                    //Select the correct anwer according to the examiner
+                                    $ans = 'ans' . $key;
+                                    if ($result == $results->$ans) {
                                         $selected = 'checked';
                                         $correct = 'correct';
                                     }
                                     ?>
                                     <input type="radio" disabled="" name="{{$quiz->id}}" {{$selected}} value="{{ucfirst($answer->answer)}}" > {{ucfirst($answer->answer)}}<br>
+                                    @endif
                                     @endforeach
                                     @if($correct == 'correct')
                         <c style="color: green">Correct Answer &#128077;</c>
