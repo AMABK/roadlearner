@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Driving Basics
+Driving Exercise 
 @endsection
 @section('preloader')
 <style>
