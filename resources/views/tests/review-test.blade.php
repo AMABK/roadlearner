@@ -95,7 +95,7 @@ Review Test Answers
 
                         </td>
                         <td style="width: 100px; border: 1px;">
-                            @if($quiz->image_link != null)
+                            @if($quiz->image_link != 'imageNo')
                             <a href="/uploads/images/{{$quiz->image_link}}" data-uk-lightbox="{group:'my-group'}"><img src="/uploads/images/{{$quiz->image_link}}" width="400" height="400" alt=""></a>
                             @endif
                         </td>
