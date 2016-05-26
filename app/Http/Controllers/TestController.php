@@ -123,17 +123,12 @@ class TestController extends Controller {
         $num = 1;
         foreach (\Request::get('quiz') as $key => $value) {
             if ($value != "") {
-                if (\Request::get('image_needed')[$key] == 'imageNo') {
-                    $image = null;
-                } else {
-                    $image = 'imageYes';
-                }
                 $add_test = \App\Question::create(array(
                             'question_type_id' => \Request::get('topic'),
                             'question' => $value,
                             'answer_desc' => 'N/A',
                             'question_status' => 1,
-                            'image_link' => $image
+                            'image_link' => \Request::get('image_needed')[$key]
                 ));
 
                 //Add answer options

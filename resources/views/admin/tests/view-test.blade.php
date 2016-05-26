@@ -34,7 +34,7 @@ Test
                                             <option value=""></option>
                                             <option value="imageYes">Un updated Image</option>
                                             <option value="link">With Image</option> 
-                                            <option value="null">No Image</option>
+                                            <option value="imageNo">No Image</option>
 
                                         </select>
                                     </span>
@@ -63,7 +63,7 @@ Test
                                             <input type="text" name="image" required="" id="name{{$test->id}}" placeholder="Search image/sign by name to update the current image" class="form-control">
                                             <input type="hidden" name="image_link" required="" id="image_link{{$test->id}}">
                                             @endif
-                                            @if(($test->image_link != 'imageYes')&&($test->image_link != null))
+                                            @if(($test->image_link != 'imageYes')&&($test->image_link != 'imageNo'))
                                             <img src="/uploads/images/{{$test->image_link}}" alt="{{$test->question}}" style="width:165px;height:165px;">
                                             <br>
                                             Select a different image
