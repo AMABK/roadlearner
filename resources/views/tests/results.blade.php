@@ -40,19 +40,19 @@ Test Results
                 <div class="box-body col-sm-8 border-left border-right c-box-shadow" style="background-color: #f1f1f1">
                     <center><h2>Percentage Score: {{sprintf('%0.2f', $results['percent'])}}&percnt;</h2></center>
                     <center><h3><i>
-                        <?php
-                        if ($results['percent'] < 40) {
-                            echo 'You must study harder!';
-                        }elseif ($results['percent'] >= 40 && $results['percent'] < 60) {
-                            echo 'You are not badly off, but you need to put more effort!';
-                        }elseif ($results['percent'] >= 60 && $results['percent'] <80) {
-                            echo 'You hard work has paid off, your almost there!';
-                        }elseif ($results['percent'] >= 80 &&$results['percent'] <90) {
-                            echo 'Excellent, you did it!';
-                        }else {
-                            echo 'Excellent performance, you are a genius!';
-                        }
-                        ?>
+                                <?php
+                                if ($results['percent'] < 40) {
+                                    echo 'You must study harder!';
+                                } elseif ($results['percent'] >= 40 && $results['percent'] < 60) {
+                                    echo 'You are not badly off, but you need to put more effort!';
+                                } elseif ($results['percent'] >= 60 && $results['percent'] < 80) {
+                                    echo 'You hard work has paid off, your almost there!';
+                                } elseif ($results['percent'] >= 80 && $results['percent'] < 90) {
+                                    echo 'Excellent, you did it!';
+                                } else {
+                                    echo 'Excellent performance, you are a genius!';
+                                }
+                                ?>
                             </i></h3></center>
                     <center><h3>{{($results['percent']/100)*($results['quiz_num'])}} correct Answers out of {{$results['quiz_num']}} Questions</h3></center>
                     @if(\Session::has('checked'))
@@ -62,8 +62,12 @@ Test Results
                     @endforeach
                     @endif
                     <input type="hidden" name="results" value="{{json_encode($results)}}">
-                    <input type="submit" class="btn btn-warning" name="check" value="Check your answers" style="font-size: 25px; float: left">
-                    <input type="submit" class="btn btn-warning" name="try" value="Try again" style="font-size: 25px; float: right">
+                    <div class="col-md-9" style="padding: 2px;">
+                        <input type="submit" class="btn btn-warning" name="check" value="Check your answers" style="font-size: 25px;">
+                    </div>
+                    <div class="col-md-2" style="padding: 2px;">
+                        <input type="submit" class="btn btn-warning" name="try" value="Try again" style="font-size: 25px;">
+                    </div>
                 </div>
             </form>
             <div class="box-body col-sm-4 border-left border-right">

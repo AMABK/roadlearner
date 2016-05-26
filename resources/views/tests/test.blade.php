@@ -27,18 +27,15 @@ Test
 @section('content')
 <hr>
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-9">
         <div class="box">
-            <div class="box-header with-border col-sm-8">
+            <div class="box-header with-border col-md-12">
                 <center><h3 class="box-title">Welcome to your driving test</h3></center>
-            </div>
-            <div class="box-header with-border col-sm-4">
-                <center><h3 class="box-title">Important Tips for City Driving</h3></center>
             </div>
             <form action="test-results" method="post">
                 {!!csrf_field()!!}
-                <div class="box-body col-sm-8 border-left border-right">
-                    <table class="table table-striped c-box-shadow"  id="testTable"style="width: 100%">
+                <div class="box-body col-md-12 border-left border-right">
+                    <table class="table table-striped c-box-shadow" style="width: 100%">
                         <thead class="hidden">
                             <tr><th></th><th></th></tr>
                         </thead>
@@ -72,7 +69,7 @@ Test
                                 @endif
                                 @endforeach
                             </td>
-                            <td style="width: 100px; border: 1px;">
+                            <td style="border: 1px;">
                                 @if($question->image_link != 'imageNo')
                                 <a href="/uploads/images/{{$question->image_link}}" data-uk-lightbox="{group:'my-group'}"><img src="/uploads/images/{{$question->image_link}}" width="400" height="400" alt=""></a>
                                 @endif
@@ -85,14 +82,15 @@ Test
                     <input type="submit" class="btn btn-success" value="CHECK RESULTS &#187; &#187;" style="font-size: 25px;">
                 </div>
             </form>
-            <div class="box-body col-sm-4 border-left border-right">
-
-            </div>
-            <div class="box-body no-padding">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="box">
+            <div class="box-header with-border col-md-12">
+                <center><h3 class="box-title">Welcome to your driving test</h3></center>
             </div>
         </div>
     </div>
-
 </div>
 <hr>
 @stop

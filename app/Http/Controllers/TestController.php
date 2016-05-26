@@ -34,7 +34,7 @@ class TestController extends Controller {
         //Check whether any topics have been selected
         if (\Session::has('checked')) {
             $query = \App\Question::where('question_status', 1)->where('image_link', 'NOT LIKE', '%imageYes%');
-            $checked = \Request::get('checked');
+            $checked = \Session::get('checked');
             $query->where(function($or_query) use ($checked) {
                 foreach ($checked as $key => $value) {
                     $or_query->orWhere('question_type_id', $key);
