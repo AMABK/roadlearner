@@ -73,7 +73,7 @@ Test
                                 @endforeach
                             </td>
                             <td style="width: 100px; border: 1px;">
-                                @if($question->image_link != null)
+                                @if($question->image_link != 'imageNo')
                                 <a href="/uploads/images/{{$question->image_link}}" data-uk-lightbox="{group:'my-group'}"><img src="/uploads/images/{{$question->image_link}}" width="400" height="400" alt=""></a>
                                 @endif
                             </td>

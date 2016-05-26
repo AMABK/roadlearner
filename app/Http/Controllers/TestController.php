@@ -18,13 +18,13 @@ class TestController extends Controller {
             return redirect('select-test')
                             ->with('global', '<div class="alert alert-warning" align="center">Please select at least one test topic</div>');
         }
-        $query = \App\Question::where('question_status', 1)->where('image_link', '!=', 'imageYes');
+        $query = \App\Question::where('question_status', 1)->where('image_link', 'NOT LIKE', '%imageYes%');
         $checked = \Request::get('checked');
-        foreach ($checked as $key => $value) {
-            $query->orWhere(function($or_query) use ($key) {
+        $query->where(function($or_query) use ($checked) {
+            foreach ($checked as $key => $value) {
                 $or_query->orWhere('question_type_id', $key);
-            });
-        }
+            }
+        });
         $question = $query->orderBy(\DB::raw('RAND()'))->limit(30)->get();
         \Session::put('checked', $checked);
         return view('tests.test', array('questions' => $question));
@@ -33,13 +33,13 @@ class TestController extends Controller {
     public function getOnlineTest() {
         //Check whether any topics have been selected
         if (\Session::has('checked')) {
-            $query = \App\Question::where('question_status', 1)->where('image_link', '!=', 'imageYes');
-            $checked = \Session::get('checked');
-            foreach ($checked as $key => $value) {
-                $query->orWhere(function($or_query) use ($key) {
+            $query = \App\Question::where('question_status', 1)->where('image_link', 'NOT LIKE', '%imageYes%');
+            $checked = \Request::get('checked');
+            $query->where(function($or_query) use ($checked) {
+                foreach ($checked as $key => $value) {
                     $or_query->orWhere('question_type_id', $key);
-                });
-            }
+                }
+            });
             $question = $query->orderBy(\DB::raw('RAND()'))->limit(30)->get();
             return view('tests.test', array('questions' => $question));
         } else {

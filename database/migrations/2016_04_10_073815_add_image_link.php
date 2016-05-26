@@ -13,7 +13,7 @@ class AddImageLink extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->string('image_link')->nullable();
+            $table->string('image_link')->default('imageNo');
         });
     }
 
