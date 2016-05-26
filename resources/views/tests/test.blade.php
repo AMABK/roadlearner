@@ -61,7 +61,7 @@ Test
                             </td>
                         </tr>
                         <tr>
-                            <td>{{$question->id}}
+                            <td>
                                 <input type="hidden" name="{{$question->id}}" value="off">
                                 @foreach($question->answers as $answer)
                                 @if($answer->answer != "") 
