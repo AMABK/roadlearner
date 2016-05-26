@@ -61,7 +61,7 @@ Test
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td>{{$question->id}}
                                 <input type="hidden" name="{{$question->id}}" value="off">
                                 @foreach($question->answers as $answer)
                                 @if($answer->answer != "") 
@@ -118,13 +118,13 @@ Test
         lessLink: '<a href="#">Read less</a>'
     });
 
-    $(document).ready(function () {
-        $('#testTable').DataTable({
-            "order": false,
-            "lengthMenu": [[20, 40, -1], [10, 20, "All"]],
-            "paging": true,
-            "info": false
-        });
-    });
+//    $(document).ready(function () {
+//        $('#testTable').DataTable({
+//            "order": false,
+//            "lengthMenu": [[20, 40, -1], [10, 20, "All"]],
+//            "paging": true,
+//            "info": false
+//        });
+//    });
 </script>   
 @stop
