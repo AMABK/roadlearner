@@ -59,21 +59,17 @@ class TestController extends Controller {
         foreach ($result as $key => $value) {
             if (is_numeric($key)) {
                 $quiz_num++;
-            }
-            if ($i == 1) {
-                $student_answer = $value;
-                $i++;
-            } elseif ($i == 2) {
-                $correct_answer = $value;
-                $i = 1;
+
+                $correctAns = 'ans' . $key;
+                $studentAns = $value;
                 //Check if the answer is correct
-                if ($student_answer == $correct_answer) {
+                if ($studentAns == $result[$correctAns]) {
                     $count++;
                 }
             }
         }
         //calculate percentage score
-        if (sizeof($result) > 0) {
+        if (sizeof($result) > 2) {
             $percent = ($count * 100) / ($quiz_num);
         } else {
             $percent = 0;
