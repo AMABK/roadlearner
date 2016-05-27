@@ -9,8 +9,12 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller {
 
     public function index() {
-        $doc = \App\Document::where('doc_status', 1)
-                ->where('doc_type', 'usefullink')
+        $doc = \DB::table('documents')
+                ->where('doc_status', 1)
+                ->where(function ($query) {
+                    $query->orWhere('doc_type', 'usefullink')
+                    ->orWhere('doc_type', 'all');
+                })
                 ->get();
         return view('welcome', array('docs' => $doc));
     }
@@ -87,8 +91,12 @@ class HomeController extends Controller {
     }
 
     public function viewDownloads() {
-        $download = \App\Document::where('doc_status', 1)
-                ->where('doc_type', 'download')
+        $download = \DB::table('documents')
+                ->where('doc_status', 1)
+                ->where(function ($query) {
+                    $query->orWhere('doc_type', 'download')
+                    ->orWhere('doc_type', 'all');
+                })
                 ->get();
         return view('view-downloads', array('downloads' => $download));
     }
@@ -97,9 +105,11 @@ class HomeController extends Controller {
         $doc = \App\Document::find($id);
         return view('download', array('doc' => $doc));
     }
+
     public function contact() {
         return view('contact');
     }
+
     //Access blog database
     public static function getBlogLinks() {
         $popular_sql = 'SELECT p.guid, p.post_title FROM blog_popularpostsdata AS pp LEFT JOIN blog_posts AS p ON pp.postid=p.id WHERE p.post_status="publish" ORDER BY pp.pageviews DESC LIMIT 5';
@@ -110,4 +120,5 @@ class HomeController extends Controller {
         $post['recent'] = $recent_posts;
         return $post;
     }
+
 }

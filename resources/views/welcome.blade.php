@@ -29,7 +29,7 @@ Welcome
     <div class="col-md-4">
         <div class="box">
             <div class="box-header with-border">
-                <center><h3 class="box-title"><b>&rightarrow; Useful Links &leftarrow;</b></h3></center>
+                <center><h3 class="box-title"><b>&rightarrow; Useful Resources &leftarrow;</b></h3></center>
                 <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse">
                     </button>

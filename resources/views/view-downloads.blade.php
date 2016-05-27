@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-Traffic Signs
+Downloads
 @endsection
 @section('preloader')
 <style>

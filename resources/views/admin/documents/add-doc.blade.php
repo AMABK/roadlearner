@@ -19,7 +19,7 @@ Test
                             <div class="col-lg-12">
                                 <h3>Documents</h3>
                                 <div class="col-lg-6">
-                                    <form action="/add-doc" method="post" enctype="multipart/form-data">
+                                    <form action="/admin/add-doc" method="post" enctype="multipart/form-data">
                                         {!! csrf_field() !!}
                                         <div class="form-group">
                                             <label for="">Select a document </label>                                
@@ -30,7 +30,8 @@ Test
                                             <select type="text" required="" name="document_type" class="form-control" id="exampleInputPassword1" placeholder="Document type">
                                                 <option value="">Please select</option>
                                                 <option value="usefullink">Useful Link</option>
-                                                <option value="warning">Warning Sign</option>
+                                                <option value="download">Download</option>
+                                                <option value="all">All</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
