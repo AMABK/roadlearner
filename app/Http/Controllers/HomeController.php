@@ -100,5 +100,14 @@ class HomeController extends Controller {
     public function contact() {
         return view('contact');
     }
-
+    //Access blog database
+    public static function getBlogLinks() {
+        $popular_sql = 'SELECT p.guid, p.post_title FROM blog_popularpostsdata AS pp LEFT JOIN blog_posts AS p ON pp.postid=p.id WHERE p.post_status="publish" ORDER BY pp.pageviews DESC LIMIT 5';
+        $recent_sql = 'SELECT guid,post_title FROM blog_posts WHERE post_status="publish" ORDER BY post_date DESC LIMIT 5';
+        $popular_posts = \DB::connection('mysql_blog')->select($popular_sql);
+        $recent_posts = \DB::connection('mysql_blog')->select($recent_sql);
+        $post['popular'] = $popular_posts;
+        $post['recent'] = $recent_posts;
+        return $post;
+    }
 }

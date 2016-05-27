@@ -64,6 +64,18 @@ return [
             'strict'    => false,
         ],
 
+        'mysql_blog' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('BLOG_DB_DATABASE', 'forge'),
+            'username'  => env('BLOG_DB_USERNAME', 'forge'),
+            'password'  => env('BLOG_DB_PASSWORD', ''),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
         'pgsql' => [
             'driver'   => 'pgsql',
             'host'     => env('DB_HOST', 'localhost'),

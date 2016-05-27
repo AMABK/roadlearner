@@ -76,21 +76,19 @@ Traffic Signs
                 </div>
                 @endif
                 <?php $j++; ?>
-                @endforeach            
+                @endforeach 
+                @if($j != 12)
             </div>
-            <div class="box-body no-padding">
-                {!! $signs->links() !!}
-            </div>
+            @endif
+        </div>
+        <div class="box-body no-padding">
+            {!! $signs->links() !!}
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="box">
-            <div class="box-header with-border">
-                <center><h3 class="box-title">Useful Links</h3></center>
-
-            </div>
-        </div>
-    </div>
+</div>
+<div class="col-md-3">
+    @include('layout.links')
+</div>
 </div>
 @stop
 @section('scripts')

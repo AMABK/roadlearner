@@ -72,20 +72,18 @@ Driving Videos
                 @endif
                 <?php $j++; ?>
                 @endforeach 
-            </div>               
-            <div class="box-body no-padding">
-                {!! $videos->links() !!}
+                @if(($j != 9)&&($j != 0))
             </div>
+            @endif
+        </div>               
+        <div class="box-body no-padding">
+            {!! $videos->links() !!}
         </div>
     </div>
-    <div class="col-md-2">
-        <div class="box">
-            <div class="box-header with-border">
-                <center><h3 class="box-title">Useful Links</h3></center>
-
-            </div>
-        </div>
-    </div>
+</div>
+<div class="col-md-2">
+    @include('layout.links')
+</div>
 </div>
 
 <hr>

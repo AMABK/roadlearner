@@ -154,6 +154,11 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'after-results',
         'uses' => 'TestController@afterResults'
     ));
+    //Get all blog post
+    Route::get('/blog/get-posts', array(
+        'as' => 'blog/get-posts',
+        'uses' => 'HomeController@getBlogLinks'
+    ));
 
     //Authenticated routes
     Route::group(['middleware' => 'auth'], function () {

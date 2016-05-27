@@ -50,12 +50,7 @@ Traffic Signs
         </div>
     </div>
     <div class="col-md-3">
-        <div class="box">
-            <div class="box-header with-border">
-                <center><h3 class="box-title">Useful Links</h3></center>
-
-            </div>
-        </div>
+         @include('layout.links')
     </div>
 </div>
 
