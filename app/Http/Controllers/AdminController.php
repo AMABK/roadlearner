@@ -161,7 +161,6 @@ class AdminController extends Controller {
 
     public function postAddDoc() {
         $validator = \Validator::make(\Request::all(), array(
-                    'document' => 'required|mimes:pdf,doc,docx,xlsx',
                     'document_type' => 'required',
                     'document_name' => 'required',
                     'document_description' => 'required'
