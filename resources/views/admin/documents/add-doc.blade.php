@@ -13,6 +13,13 @@ Test
                     @if(Session::has('global'))
                     <center><p>{!!Session::get('global')!!}</p></center>
                     @endif
+                    @if (count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-warning"><<li>{{ $error }}</li></div>
+                        @endforeach
+                    </ul>
+                    @endif
                     <div class="row">
                         @include('admin.documents.navbar')
                         <div class="tab-content">
