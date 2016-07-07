@@ -214,7 +214,9 @@ class CalculatorController extends Controller {
                     foreach ($insert as $content) {
                         if (($content['model'] != null) && ($content['engine_capacity'] == null) && ($content['body_type'] == null) && ($content['drive_config'] == null)) {
                             //Check if model exists
-                            $make = \App\Make::where('make_name', $content['model'])->first();
+                            $make = \App\Make::where('make_name', $content['model'])
+                                    ->where('make_category', 'motorvehicle')
+                                    ->first();
                             if (sizeof($make) < 1) {
                                 //Insert into makes
                                 $make = \App\Make::create(array(
