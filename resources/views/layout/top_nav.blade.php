@@ -91,6 +91,9 @@
                     <a href="{{URL('/road-statistics')}}">Road Statistics</a>
                 </li>-->
                 <li>
+                    <a href="{{URL('/calculator')}}">Import Tax Calculator</a>
+                </li>
+                <li>
                     <a href="{{URL('/view-downloads')}}">Downloads</a>
                 </li>
                 <li>

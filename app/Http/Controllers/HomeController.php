@@ -121,4 +121,53 @@ class HomeController extends Controller {
         return $post;
     }
 
+    public static function calculator() {
+        if (!session()->has('motor_type')) {
+            session(['motor_type' => 'motorvehicle']);
+        }
+        switch (session()->get('motor_type')) {
+            case 'motorvehicle':
+                $make = \App\Make::with(['mvCrsps' => function ($query) {
+                                $query->where('status', 1);
+                            }])
+                        ->where('make_category', 'motorvehicle')
+                        ->where('status', 1)
+                        ->get();
+                break;
+            case 'primemover':
+                $make = \App\Make::with(['mvCrsps' => function ($query) {
+                                $query->where('status', 1);
+                            }])
+                        ->where('make_category', 'motorvehicle')
+                        ->where('status', 1)
+                        ->get();
+                break;
+            case 'motorcycle':
+                $make = \App\Make::with(['mcCrsps' => function ($query) {
+                                $query->where('status', 1);
+                            }])
+                        ->where('make_category', 'motorcycle')
+                        ->get();
+                break;
+            case 'trailer':
+                $make = \App\Make::with(['trailerCrsps' => function ($query) {
+                                $query->where('status', 1);
+                            }])
+                        ->where('make_category', 'trailer')
+                        ->where('status', 1)
+                        ->get();
+                break;
+            case 'tractor':
+                $make = \App\Make::with('tractorCrsps')
+                        ->where('make_category', 'tractor')
+                        ->where('status', 1)
+                        ->get();
+                break;
+            default :
+                dd('Internal server error');
+                break;
+        }
+        return view('calculator', array('makes' => $make));
+    }
+
 }

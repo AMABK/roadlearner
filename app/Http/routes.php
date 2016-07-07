@@ -82,43 +82,6 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'traffic-signs',
         'uses' => 'HomeController@getTrafficSigns'
     ));
-//Admin contoller
-    Route::get('/admin/documents', array(
-        'as' => '/admin/documents',
-        'uses' => 'AdminController@documents'
-    ));
-    Route::get('/admin/add-doc', array(
-        'as' => '/admin/add-doc',
-        'uses' => 'AdminController@addDoc'
-    ));
-    Route::get('/admin/add-image', array(
-        'as' => '/admin/add-image',
-        'uses' => 'AdminController@addImage'
-    ));
-    Route::post('/admin/add-doc', array(
-        'as' => '/admin/add-doc',
-        'uses' => 'AdminController@postAddDoc'
-    ));
-    Route::post('/admin/edit-doc', array(
-        'as' => '/admin/edit-doc',
-        'uses' => 'AdminController@postEditDoc'
-    ));
-    Route::post('/admin/add-image', array(
-        'as' => '/admin/add-image',
-        'uses' => 'AdminController@postAddImage'
-    ));
-    Route::get('/admin/images', array(
-        'as' => '/admin/images',
-        'uses' => 'AdminController@images'
-    ));
-    Route::post('/admin/edit-image', array(
-        'as' => '/admin/edit-image',
-        'uses' => 'AdminController@postUpdateSign'
-    ));
-    Route::post('/add-video', array(
-        'as' => 'add-video',
-        'uses' => 'AdminController@postAddVideo'
-    ));
 
 //Test Controller
 
@@ -159,9 +122,56 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'blog/get-posts',
         'uses' => 'HomeController@getBlogLinks'
     ));
+    //Calculator
+    Route::get('/calculator', array(
+        'as' => 'calculator',
+        'uses' => 'HomeController@calculator'
+    ));
+    //Calculator
 
+    Route::post('/calculator', array(
+        'as' => 'calculator',
+        'uses' => 'CalculatorController@taxCalculator'
+    ));
     //Authenticated routes
     Route::group(['middleware' => 'auth'], function () {
+        //Admin contoller
+        Route::get('/admin/documents', array(
+            'as' => '/admin/documents',
+            'uses' => 'AdminController@documents'
+        ));
+        Route::get('/admin/add-doc', array(
+            'as' => '/admin/add-doc',
+            'uses' => 'AdminController@addDoc'
+        ));
+        Route::get('/admin/add-image', array(
+            'as' => '/admin/add-image',
+            'uses' => 'AdminController@addImage'
+        ));
+        Route::post('/admin/add-doc', array(
+            'as' => '/admin/add-doc',
+            'uses' => 'AdminController@postAddDoc'
+        ));
+        Route::post('/admin/edit-doc', array(
+            'as' => '/admin/edit-doc',
+            'uses' => 'AdminController@postEditDoc'
+        ));
+        Route::post('/admin/add-image', array(
+            'as' => '/admin/add-image',
+            'uses' => 'AdminController@postAddImage'
+        ));
+        Route::get('/admin/images', array(
+            'as' => '/admin/images',
+            'uses' => 'AdminController@images'
+        ));
+        Route::post('/admin/edit-image', array(
+            'as' => '/admin/edit-image',
+            'uses' => 'AdminController@postUpdateSign'
+        ));
+        Route::post('/add-video', array(
+            'as' => 'add-video',
+            'uses' => 'AdminController@postAddVideo'
+        ));
         Route::get('/home', 'AdminController@index');
         Route::get('/admin/view-test', array(
             'as' => '/admin/view-test',
@@ -194,6 +204,28 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/admin/add-cat', array(
             'as' => 'admin/add-cat',
             'uses' => 'TestController@addCategory'
+        ));
+        //Tax Calculator
+        Route::get('/admin/import', array(
+            'as' => '/admin/import',
+            'uses' => 'CalculatorController@calculator'
+        ));
+
+        Route::post('admin/import-mv-doc', array(
+            'as' => 'import-mv-doc',
+            'uses' => 'CalculatorController@importMotorVehicleExcel'
+        ));
+        Route::post('admin/import-mc-doc', array(
+            'as' => 'import-mc-doc',
+            'uses' => 'CalculatorController@importMotorCycleExcel'
+        ));
+        Route::post('admin/import-trailer-doc', array(
+            'as' => 'import-trailer-doc',
+            'uses' => 'CalculatorController@importTrailerExcel'
+        ));
+        Route::post('admin/import-tractor-doc', array(
+            'as' => 'import-tractor-doc',
+            'uses' => 'CalculatorController@importTractorExcel'
         ));
     });
 });

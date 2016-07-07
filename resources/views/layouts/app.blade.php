@@ -53,6 +53,7 @@
                     <li><a href="{{ url('/admin/test') }}">Tests</a></li>
                     <li><a href="{{ url('/admin/documents') }}">Documents</a></li>
                     <li><a href="{{ url('/admin/images') }}">Images</a></li>
+                    <li><a href="{{ url('/admin/import') }}">Calculator Imports</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
