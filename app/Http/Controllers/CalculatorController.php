@@ -189,6 +189,7 @@ class CalculatorController extends Controller {
     public function importMotorVehicleExcel() {
         //dd('This functionality is disabled');
         if (\Request::hasFile('import_file')) {
+            ini_set('max_execution_time', 300);
             set_time_limit(300);
             $path = \Request::file('import_file')->getRealPath();
             $data = \Excel::load($path, function($reader) {
