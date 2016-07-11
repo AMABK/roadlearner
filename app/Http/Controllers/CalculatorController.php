@@ -190,7 +190,7 @@ class CalculatorController extends Controller {
         //dd('This functionality is disabled');
         if (\Request::hasFile('import_file')) {
             ini_set('max_execution_time', 300);
-            ini_set('memory_limit','256M');
+            ini_set('memory_limit','512M');
             set_time_limit(300);
             $path = \Request::file('import_file')->getRealPath();
             $data = \Excel::load($path, function($reader) {
