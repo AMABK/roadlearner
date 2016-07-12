@@ -47,14 +47,22 @@ class CalculatorController extends Controller {
                 $current_price = str_replace(',', '', $model->crsp);
             } else {
                 $string = $model->crsp;
+
+                //Make curl request
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
                 //Remove all currency characters
                 if (($string[0] == '$') || ($string[0] == 'U')) {
-                    $current_price = preg_replace('/\D/', '', $string) * 101;
+                    curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=USD&to=KES');                  
                 } elseif (($string[0] == 'E')) {
-                    $current_price = preg_replace('/\D/', '', $string) * 121;
+                    curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=EUR&to=KES'); 
                 } else {
                     exit('Internal error occured, please concta admin');
                 }
+                
+                $content_array = json_decode(curl_exec($ch), true);
+                $current_price = preg_replace('/\D/', '', $string) * $content_array['Rate'];
             }
             $depreciation = $this->getDepreciationForDirectImports($age);
             if ($item_type == 'motorvehicle') {
@@ -84,7 +92,7 @@ class CalculatorController extends Controller {
             if ($idf_fees < 5000) {
                 $idf_fees = 5000;
             }
-            $grand_total = round($idf_fees + $import_duty + $excise_duty + $vat + $rdl);
+            $taxes = round($idf_fees + $import_duty + $excise_duty + $vat + $rdl);
             $buying_price = round(\Request::get('buying_price'));
 
             $calculator = [];
@@ -105,8 +113,9 @@ class CalculatorController extends Controller {
             $calculator['rdl_percent'] = $item_type_query['rdl'];
             $calculator['idf_fees'] = $idf_fees;
             $calculator['idf_fees_percent'] = $item_type_query['idf_fees'];
-            $calculator['grand_total'] = $grand_total;
-            $calculator['buying_price'] = $buying_price;
+            $calculator['taxes'] = $taxes;
+            $calculator['buying_price'] = intval($buying_price);
+            $calculator['grand_total'] = $calculator['buying_price'] + $taxes;
             return redirect('/calculator')
                             ->with('calculators', $calculator)
                             ->with('calculator', '<div class="alert alert-success" align="center">Calculated Import Cost</div>');
@@ -190,7 +199,7 @@ class CalculatorController extends Controller {
         dd('This functionality is disabled');
         if (\Request::hasFile('import_file')) {
             ini_set('max_execution_time', 300);
-            ini_set('memory_limit','512M');
+            ini_set('memory_limit', '512M');
             set_time_limit(300);
             $path = \Request::file('import_file')->getRealPath();
             $data = \Excel::load($path, function($reader) {
@@ -471,6 +480,14 @@ class CalculatorController extends Controller {
 
         $diff = (($year2 - $year1) * 12) + ($month2 - $month1);
         return $diff / 12;
+    }
+
+    public function rates() {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=EUR&to=KES');
+        $content_array = json_decode(curl_exec($ch), true);
+        dd($content_array);
     }
 
 }

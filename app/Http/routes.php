@@ -127,6 +127,10 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'calculator',
         'uses' => 'HomeController@calculator'
     ));
+    Route::get('/rates', array(
+        'as' => 'raate',
+        'uses' => 'CalculatorController@rates'
+    ));
     //Calculator
 
     Route::post('/calculator', array(

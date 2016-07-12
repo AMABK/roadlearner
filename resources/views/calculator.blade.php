@@ -169,7 +169,7 @@ Tax Calculator
                 </div>
                 <div class="form-group">
                     <label for="buying">Actual Buying Price:</label>
-                    <input type="number" min="0" minlength="1" name="buying_price" value="{{old('buying_price')}}" placeholder="Optional" class="form-control" id="buying">
+                    <input type="number" min="0" minlength="1" pattern=".{1,10}" name="buying_price" value="{{old('buying_price') or 0 }}" placeholder="Optional" class="form-control" id="buying">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="CALCULATE" class="form-control btn-primary" id="pwd">
@@ -223,12 +223,28 @@ Tax Calculator
                         <td>IDF Fees({{$import['idf_fees_percent']}}&percnt; of the Custom Value)</td><td><b>&plus;</b> {{$import['idf_fees']}}</td>
                     </tr>
                     <?php
-                    $total = $import['grand_total'];
+                    $total = $import['taxes'];
                     setlocale(LC_MONETARY, 'en_KE');
                     $formatted_total = number_format(money_format('%!i', $total), 2);
                     ?>
                     <tr>
-                        <td><b>Grand Total</b></td><td> <b>&equals;</b> <b> KES {{$formatted_total}}</b></td>
+                        <td><b>Total Taxes</b></td><td> <b>&equals;</b> <b> KES {{$formatted_total}}</b></td>
+                    </tr>
+                    <?php
+                    $buying_price = $import['buying_price'];
+                    setlocale(LC_MONETARY, 'en_KE');
+                    $price = number_format(money_format('%!i', $buying_price), 2);
+                    ?>
+                    <tr>
+                        <td><b>Car Price</b></td><td> <b>&equals;</b> <b> KES {{$price}}</b></td>
+                    </tr>
+                     <?php
+                    $grand_total = $import['grand_total'];
+                    setlocale(LC_MONETARY, 'en_KE');
+                    $combined_total = number_format(money_format('%!i', $grand_total), 2);
+                    ?>
+                    <tr>
+                        <td><b>Grand Total</b></td><td> <b>&equals;</b> <b> KES {{$combined_total}}</b></td>
                     </tr>
                 </tbody>
             </table>
