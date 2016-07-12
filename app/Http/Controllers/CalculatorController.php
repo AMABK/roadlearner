@@ -187,7 +187,7 @@ class CalculatorController extends Controller {
     }
 
     public function importMotorVehicleExcel() {
-        //dd('This functionality is disabled');
+        dd('This functionality is disabled');
         if (\Request::hasFile('import_file')) {
             ini_set('max_execution_time', 300);
             ini_set('memory_limit','512M');
@@ -260,7 +260,7 @@ class CalculatorController extends Controller {
     }
 
     public function importMotorCycleExcel() {
-        //dd('This functionality is disabled');
+        dd('This functionality is disabled');
         if (\Request::hasFile('import_file')) {
             set_time_limit(300);
             $path = \Request::file('import_file')->getRealPath();
@@ -329,7 +329,7 @@ class CalculatorController extends Controller {
     }
 
     public function importTrailerExcel() {
-        //dd('This functionality is disabled');
+        dd('This functionality is disabled');
         if (\Request::hasFile('import_file')) {
             set_time_limit(300);
             $path = \Request::file('import_file')->getRealPath();
