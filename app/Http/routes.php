@@ -127,8 +127,8 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'calculator',
         'uses' => 'HomeController@calculator'
     ));
-    Route::get('/rates', array(
-        'as' => 'raate',
+    Route::get('/test/rates', array(
+        'as' => 'rates',
         'uses' => 'CalculatorController@rates'
     ));
     //Calculator
@@ -136,6 +136,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/calculator', array(
         'as' => 'calculator',
         'uses' => 'CalculatorController@taxCalculator'
+    ));
+    Route::post('/send-invoice', array(
+        'as' => 'send-invoice',
+        'uses' => 'CalculatorController@sendInvoice'
     ));
     //Authenticated routes
     Route::group(['middleware' => 'auth'], function () {

@@ -35,6 +35,9 @@ Tax Calculator
 
                 </div>
             </div>
+            @if(Session::has('global'))
+            <center><p>{!!Session::get('global')!!}</p></center>
+            @endif
             @if (count($errors) > 0)
             <ul>
                 @foreach ($errors->all() as $error)
@@ -178,6 +181,7 @@ Tax Calculator
             @if(Session::has('calculator'))
             <?php
             $import = Session::get('calculators');
+            $serialize_import  = serialize($import);
             ?>
             @if(Session::has('calculator'))
             <center><h2>{!!Session::get('calculator')!!}</h2></center>
@@ -249,18 +253,19 @@ Tax Calculator
                 </tbody>
             </table>
             <br>
-<!--            <form action="/send-invoice" method="post">
+            <form action="/send-invoice" method="post">
                 {!!csrf_field()!!}
-                <div class="form-group col-md-4">
-                    <input type="text" class="form-control" placeholder="enter your name" required="">
+                <input type="hidden" name="import" value="{{$serialize_import}}">
+                <div class="form-group col-md-4" style="margin-left: -15px">
+                    <input type="text" name="name" class="form-control" placeholder="enter your name" required="">
                 </div>
                 <div class="form-group col-md-4">
-                    <input type="email" class="form-control" placeholder="enter your email" required="">
+                    <input type="email" name="email" class="form-control" placeholder="enter your email" required="">
                 </div>
                 <div class="form-group col-md-3">
-                    <input type="submit" class="btn btn-danger " value="GET THIS INVOICE">
+                    <input type="submit" class="btn btn-danger " value="GET THIS QUOTATION FOR FREE">
                 </div>
-            </form>-->
+            </form>
             @endif
         </div>
     </div>

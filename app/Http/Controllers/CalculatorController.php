@@ -54,13 +54,13 @@ class CalculatorController extends Controller {
 
                 //Remove all currency characters
                 if (($string[0] == '$') || ($string[0] == 'U')) {
-                    curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=USD&to=KES');                  
+                    curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=USD&to=KES');
                 } elseif (($string[0] == 'E')) {
-                    curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=EUR&to=KES'); 
+                    curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=EUR&to=KES');
                 } else {
                     exit('Internal error occured, please concta admin');
                 }
-                
+
                 $content_array = json_decode(curl_exec($ch), true);
                 $current_price = preg_replace('/\D/', '', $string) * $content_array['Rate'];
             }
@@ -483,11 +483,86 @@ class CalculatorController extends Controller {
     }
 
     public function rates() {
+        
+        return view('quote.email');
+        
+        $data = array(
+            "import" => 'a:20:{s:4:"crsp";s:7:"2845569";s:12:"depreciation";i:5;s:18:"depreciation_years";d:0.41999999999999998;s:18:"extra_depreciation";i:0;s:12:"custom_value";d:1242892;s:11:"import_duty";d:310723;s:19:"import_duty_percent";s:5:"25.00";s:12:"excise_value";d:1553615;s:11:"excise_duty";d:310723;s:19:"excise_duty_percent";s:5:"20.00";s:9:"vat_value";d:1864338;s:3:"vat";d:298294;s:11:"vat_percent";s:5:"16.00";s:3:"rdl";d:18643;s:11:"rdl_percent";s:4:"1.50";s:8:"idf_fees";d:27965;s:16:"idf_fees_percent";s:4:"2.25";s:5:"taxes";d:966348;s:12:"buying_price";i:0;s:11:"grand_total";d:966348;}',
+            "name" => "Arnold Mate",
+            "email" => "arnold.mate@optimuse-solutions.com"
+        );
+        return view('quote.quote', array('data' => $data));
+        //Send activation link
+        //$mail = Mail::pretend();
+        $user = \Auth::user();
+        $mail = \Mail::send('quote.activate', array(
+                    'link' => route('/', 'code'),
+                    'name' => 'first_name',
+                    'email' => 'arnold.mate@email.com',
+                    'password' => 'password'), function($message) use ($user) {
+                    $message->to('arnold.mate@optimuse-solutions.com', 'Tester')->subject('Activate your account');
+                });
+
+        if ($mail) {
+            dd('Success');
+        } else {
+            dd('Fail');
+        }
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_URL, 'http://rate-exchange.herokuapp.com/fetchRate?from=EUR&to=KES');
         $content_array = json_decode(curl_exec($ch), true);
         dd($content_array);
+    }
+
+    public function sendInvoice() {
+        $validator = \Validator::make(\Request::all(), array(
+                    'name' => 'required',
+                    'email' => 'required',
+                        )
+        );
+        if ($validator->fails()) {
+            return redirect()->back()
+                            ->withInput()
+                            ->withErrors($validator->errors());
+        } else {
+            $data = array(
+                'import' => \Request::get('import'),
+                'name' => \Request::get('name'),
+                'email' => \Request::get('email'),
+            );
+
+            //dd($data);
+            //$pdf = \App::make('dompdf.wrapper');
+            //$pdf->loadHTML('<h1>Test</h1>');
+            // $view = \View::make('layout.quote');
+
+            $pdf = \PDF::loadView('quote.quote', compact('data'));
+            $pdf->setPaper('potrait')->setWarnings(false);
+            // $pdf->stream();
+            //return $pdf->stream('invoice');
+
+            $mail = \Mail::send('quote.email', array(
+                        'link' => 'http://www.roadlearner.com',
+                        'name' => \Request::get('name'),
+                        'email' => \Request::get('email'),
+                        'password' => 'password'), function($message) use ($pdf) {
+                        $message->to(\Request::get('email'), \Request::get('name'))
+                                ->from('info@roadlearner.com', 'Road Learner')
+                                ->subject('Road Learner Import Quote')
+                                ->attachData($pdf->output(), 'Road Learner Quotation.pdf');
+                    });
+
+            if ($mail) {
+                dd('success');
+                return redirect()->back()
+                                ->with('global', '<div class="alert alert-success" align="center">Quotation has been sent to your email</div>');
+            } else {
+                return redirect()->back()
+                                ->with('global', '<div class="alert alert-danger" align="center">Quotation could not be sent to your email</div>');
+            }
+        }
     }
 
 }
