@@ -325,7 +325,7 @@
                                                                                 <td width='45' valign='top'>
                                                                                     <div class='contentEditableContainer contentFacebookEditable'>
                                                                                         <div class="contentEditable">
-                                                                                            <img src="/email/images/facebook.png" alt='facebook' data-default="placeholder" data-customIcon="true" data-max-width='45' width='45' height='45' >
+                                                                                            <img src="http://www.roadlearner.com/email/images/facebook.png" alt='facebook' data-default="placeholder" data-customIcon="true" data-max-width='45' width='45' height='45' >
                                                                                         </div>
                                                                                     </div>
                                                                                 </td>
@@ -333,7 +333,7 @@
                                                                                 <td width='45' valign='top'>
                                                                                     <div class='contentEditableContainer contentTwitterEditable'>
                                                                                         <div class="contentEditable">
-                                                                                            <a href="https://twitter.com/roadlearner" target="_blank"><img src="/email/images/twitter.png" alt='Road Learner Twitter' data-default="placeholder" data-customIcon="true" data-max-width='45' width='45' height='45' ></a>
+                                                                                            <a href="https://twitter.com/roadlearner" target="_blank"><img src="http://www.roadlearner.com/email/images/twitter.png" alt='Road Learner Twitter' data-default="placeholder" data-customIcon="true" data-max-width='45' width='45' height='45' ></a>
                                                                                         </div>
                                                                                     </div>  
                                                                                 </td>
@@ -356,7 +356,7 @@
                                                                     <td>
                                                                         <div class='contentEditableContainer contentImageEditable'>
                                                                             <div class="contentEditable">
-                                                                                <img class="banner" src="/email/images/car.jpg" alt='What we do' data-default="placeholder" data-max-width="600" width='600' height='180' >
+                                                                                <img class="banner" src="http://www.roadlearner.com/email/images/car.jpg" alt='What we do' data-default="placeholder" data-max-width="600" width='600' height='180' >
                                                                             </div>
                                                                         </div>
                                                                     </td>
