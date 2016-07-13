@@ -555,7 +555,7 @@ class CalculatorController extends Controller {
                     });
 
             if ($mail) {
-                dd('success');
+                //dd('success');
                 return redirect()->back()
                                 ->with('global', '<div class="alert alert-success" align="center">Quotation has been sent to your email</div>');
             } else {
