@@ -197,7 +197,7 @@ class TestController extends Controller {
                 $query->where('image_link', $image);
             }
         }
-        $test = $query->paginate(20);
+        $test = $query->paginate(50);
         return view('admin.tests.view-test', array('tests' => $test));
     }
 

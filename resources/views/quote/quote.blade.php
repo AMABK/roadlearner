@@ -290,7 +290,7 @@
         <div id="thanks">Thank you!</div>
         <div id="notices">
             <div>NOTICE:</div>
-            <div class="notice">Quote was created by an automated and is valid without the signature and seal.</div>
+            <div class="notice">Quote was created by an automated system and is valid without the signature and seal.</div>
         </div>
     </main>
     <footer>

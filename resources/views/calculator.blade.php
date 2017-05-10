@@ -154,7 +154,7 @@ Tax Calculator
                 <div style="overflow:hidden;">
                     <div class="form-group col-md-6" style="padding-left: 0px;">
                         <label for="month">Month of Manufacture</label>
-                        <select type="text" required="" name="month" va class="form-control" id="month">
+                        <select type="text" required="" name="month" class="form-control" id="month">
                             <option value="">MM</option>
                             @for($i=1;$i<13;$i++)
                             <option value="{{$i}}">{{$i}}</option>

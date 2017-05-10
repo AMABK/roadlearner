@@ -545,7 +545,7 @@ class CalculatorController extends Controller {
 
             $mail = \Mail::send('quote.email', array(
                         'link' => 'http://www.roadlearner.com',
-                        'name' => \Request::get('name'),
+                        'requester_name' => \Request::get('name'),
                         'email' => \Request::get('email'),
                         'password' => 'password'), function($message) use ($pdf) {
                         $message->to(\Request::get('email'), \Request::get('name'))
@@ -557,7 +557,7 @@ class CalculatorController extends Controller {
             if ($mail) {
                 //dd('success');
                 return redirect()->back()
-                                ->with('global', '<div class="alert alert-success" align="center">Quotation has been sent to your email</div>');
+                                ->with('global', '<div class="alert alert-success" align="center">Quotation has been sent to your email['.\Request::get('email').']</div>');
             } else {
                 return redirect()->back()
                                 ->with('global', '<div class="alert alert-danger" align="center">Quotation could not be sent to your email</div>');

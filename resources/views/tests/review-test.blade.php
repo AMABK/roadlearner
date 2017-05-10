@@ -43,7 +43,7 @@ Review Test Answers
                             <tr><th></th><th></th></tr>
                         </thead>
                         <tbody>
-                            <?php $i = 1; ?> 
+                            <?php $i = 1; //dd($results); ?> 
 
                             @foreach($results as $key => $result)
                             @if(is_numeric($key))
@@ -70,14 +70,15 @@ Review Test Answers
                                     $correct = '';
                                     ?>
                                     @foreach($quiz->answers as $answer)
+                                    <?php $ans = 'ans' . $key; ?>
                                     @if($answer->answer != "")
                                     <?php
                                     //Checks the selected answer by student
                                     if ($result == $answer->answer) {
                                         $selected = 'checked';
                                     }
-                                    //Select the correct anwer according to the examiner
-                                    $ans = 'ans' . $key;
+                                    //Select the correct answer according to the examiner
+                                    
                                     if ($result == $results->$ans) {
                                         $selected = 'checked';
                                         $correct = 'correct';
@@ -90,7 +91,7 @@ Review Test Answers
                         <c style="color: green">Correct Answer &#128077;</c>
                         @else
                         <w style="color:red">Wrong Answer &#128078;</w><br>
-                        Correct Answer is: {{$result}}
+                        Correct Answer is: {{$results->$ans}}
                         @endif
 
                         </td>
