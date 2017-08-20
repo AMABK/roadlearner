@@ -1,5 +1,7 @@
 <?php
-$post = \App\Http\Controllers\HomeController::getBlogLinks();
+//$post = \App\Http\Controllers\HomeController::getBlogLinks();
+$post['popular']=[];
+$post['recent']=[];
 ?>
 <style>
         li {
